@@ -3,10 +3,14 @@ package project;
 public class App {
 
 	public static void main(String[] args) {
-		TestClass test = new TestClass("Robert", 85);
+		String aCountry, dataType, startYear, endYear;
 		
-		System.out.println(test.name);
-		System.out.println(test.number);
+		aCountry = "CAN";
+		dataType = "SP.POP.TOTL";
+		startYear = "2000";
+		endYear = "2001";
+		
+		System.out.println(Controller.getYearlyPopulation(aCountry, dataType, startYear, endYear));
 		
 	}
 }
