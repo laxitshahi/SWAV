@@ -12,5 +12,8 @@ public class App {
 		
 		System.out.println(Controller.getYearlyPopulation(aCountry, dataType, startYear, endYear));
 		
+		userPassword userPW = new userPassword();
+		
+		loginPage logInPage = new loginPage(userPW.getLoginInfo());
 	}
 }
