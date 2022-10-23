@@ -1,4 +1,4 @@
-package project;
+package project.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class login implements ActionListener {
+public class loginPage implements ActionListener {
 	JFrame frame = new JFrame();
 	JButton loginButton = new JButton("login");
 	JButton registerButton = new JButton("register");
@@ -24,7 +24,7 @@ public class login implements ActionListener {
 	HashMap<String, String> loginInfo = new HashMap<>();
 	
 	
-	public login(HashMap<String, String> loginInfo) {
+	public loginPage(HashMap<String, String> loginInfo) {
 		this.loginInfo = loginInfo;
 		
 		userLabel.setBounds(50, 100, 75, 25);
@@ -83,7 +83,7 @@ public class login implements ActionListener {
 					frame.dispose();
 					welcomePage wPage = new welcomePage(user);
 				} else {
-					msgLabel.setText("password incorrect");
+					msgLabel.setText("either user or password incorrect");
 				}
 			} else {
 				msgLabel.setText("you must register");

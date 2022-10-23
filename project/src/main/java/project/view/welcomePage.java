@@ -1,4 +1,4 @@
-package project;
+package project.view;
 
 import java.awt.Font;
 
