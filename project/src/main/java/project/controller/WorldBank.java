@@ -46,7 +46,7 @@ public class WorldBank {
             }
 
         } catch (IOException e) {
-            System.out.println(e);
+            throw new RuntimeException(e);
         }
 
         return jsonData;

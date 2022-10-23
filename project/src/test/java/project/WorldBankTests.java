@@ -42,10 +42,9 @@ class WorlBankTests {
 
         for (String dt : dataTypes) {
             JsonArray res = WorldBank.getData(aCountry, dt, startYear, endYear);
-            JsonObject testClass = null;
 
             /*
-             * @Test 2
+             * @Test 1
              * Description: Ensure that message (error) is not returned
              */
             if (res.get(0).isJsonObject()) {
@@ -54,16 +53,18 @@ class WorlBankTests {
                 r = (JsonObject) res.get(0);
                 assertNull(r.get("message"));
             }
+
             if (res.size() > 1) data.add(res.get(1));
             else data.add(res.get(0));
         }
+        System.out.println("✅ No Error message returned");
 
         /*
-         * @Test 1
+         * @Test 2
          * @Description: Ensure there are a proper number of responses
          */
         assertEquals(dataTypes.length, data.size());
-
+        System.out.println("✅ Responses are equivalent to the number of requests");
 
         /*
          * @Test 2
@@ -71,5 +72,5 @@ class WorlBankTests {
          */
 
     }
-    
+
 }
