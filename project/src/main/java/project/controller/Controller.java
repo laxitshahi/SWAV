@@ -27,8 +27,8 @@ public class Controller {
     public static void main(String[] args) {
         String aCountry, startYear, endYear;
         aCountry = "US";
-        startYear = "2000";
-        endYear = "2001";
+        startYear = "1700";
+        endYear = "1701";
 
         //All inputs
         String[] dataTypes =
@@ -50,6 +50,7 @@ public class Controller {
 
         for (String d : dataTypes) {
             HashMap<String, HashMap<Integer, Float>> jsonArray = getFilteredData(aCountry, d, startYear, endYear);
+            System.out.println("priting here");
             System.out.println(jsonArray);
             System.out.println(jsonArray.get(d));
         }
