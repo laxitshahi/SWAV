@@ -3,50 +3,55 @@ package project.controller;
 import java.util.HashMap;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 
+import static project.util.FilterData.filterDataAsFloat;
 
 public class Controller {
 
-
-    public static HashMap<Integer, Integer> getYearlyPopulation(String aCountry, String dataType, String startYear, String endYear) {
+    public static HashMap<String, HashMap<Integer, Float>> getFilteredData(String aCountry, String dataType, String startYear, String endYear) {
         JsonArray jsonArray = WorldBank.getData(aCountry, dataType, startYear, endYear);
 
-        int populationForYear = 0;
-        int cummulativePopulation = 0;
+        JsonElement responseData = jsonArray.get(1);
 
-        HashMap<Integer, Integer> yearlyData = new HashMap<>();
+//        Indicator
+//        String d = returnData.getAsJsonArray().get(0).getAsJsonObject().get("indicator").getAsJsonObject().get("value").getAsString();
 
-        try {
-            int sizeOfResults = jsonArray.get(1).getAsJsonArray().size();
-            int year;
-
-            for (int i = 0; i < sizeOfResults; i++) {
-                year = jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("date").getAsInt();
-                if (jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value").isJsonNull())
-                    populationForYear = 0;
-                else
-                    populationForYear = jsonArray.get(1).getAsJsonArray().get(i).getAsJsonObject().get("value")
-                            .getAsInt();
-
-                yearlyData.put(year, populationForYear);
-                System.out.println("Population for " + aCountry + " in " + year + " is " + populationForYear);
-                cummulativePopulation = cummulativePopulation + populationForYear;
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e);
-        }
-
-        return yearlyData;
+        HashMap<String, HashMap<Integer, Float>> data = new HashMap<>();
+        HashMap<Integer, Float> yearlyData = filterDataAsFloat(responseData);
+        data.put(dataType, yearlyData);
+        return data;
 
     }
 
     public static void main(String[] args) {
-        String aCountry, dataType, startYear, endYear;
+        String aCountry, startYear, endYear;
         aCountry = "US";
-        dataType = "population";
         startYear = "2000";
         endYear = "2001";
-        HashMap<Integer, Integer> yearlyData = getYearlyPopulation(aCountry, dataType, startYear, endYear);
-        System.out.println(yearlyData);
+
+        //All inputs
+        String[] dataTypes =
+                {
+                        "population",
+                        "co2emissions",
+                        "gdppercapita",
+                        "forestarea",
+                        "healthexpenditure",
+                        "hospitalbeds",
+                        "agriculturalland",
+                        "mortalityunder5",
+                        "mortalityunderfive",
+                        "usingwatermanaged",
+                        "incomesharelowest20",
+                        "incomesharelowesttwenty",
+                        "mortalityinfant"
+                };
+
+        for (String d : dataTypes) {
+            HashMap<String, HashMap<Integer, Float>> jsonArray = getFilteredData(aCountry, d, startYear, endYear);
+            System.out.println(jsonArray);
+            System.out.println(jsonArray.get(d));
+        }
     }
 }

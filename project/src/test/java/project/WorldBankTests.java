@@ -53,9 +53,10 @@ class WorlBankTests {
                 r = (JsonObject) res.get(0);
                 assertNull(r.get("message"));
             }
-
             if (res.size() > 1) data.add(res.get(1));
             else data.add(res.get(0));
+
+            System.out.println(res.get(1));
         }
         System.out.println("✅ No Error message returned");
 
@@ -65,12 +66,6 @@ class WorlBankTests {
          */
         assertEquals(dataTypes.length, data.size());
         System.out.println("✅ Responses are equivalent to the number of requests");
-
-        /*
-         * @Test 2
-         * @Description: Ensure that each response is correct by checking data type
-         */
-
     }
 
 }
