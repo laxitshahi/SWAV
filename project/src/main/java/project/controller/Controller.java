@@ -9,6 +9,7 @@ import static project.util.FilterData.filterDataAsFloat;
 
 public class Controller {
 
+
     public static HashMap<String, HashMap<Integer, Float>> getFilteredData(String aCountry, String dataType, String startYear, String endYear) {
         JsonArray jsonArray = WorldBank.getData(aCountry, dataType, startYear, endYear);
 
