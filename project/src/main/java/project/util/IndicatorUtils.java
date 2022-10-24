@@ -39,6 +39,14 @@ public class IndicatorUtils {
             //Mortality rate, infant (per 1,000 live births)
             case "mortalityinfant":
                 return "SP.DYN.IMRT.IN";
+            case "methaneemissions":
+                return "EN.ATM.METH.KT.CE";
+            case "droughtsfloodsextremetemps":
+                return "EN.CLC.MDAT.ZS";
+            case "indiviualsusinginternet":
+                return "IT.NET.USER.ZS";
+            case "accesstoelectricity":
+                return "EG.ELC.ACCS.ZS";
             default:
                 return "invalid.key";
         }

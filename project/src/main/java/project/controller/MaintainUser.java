@@ -1,11 +1,13 @@
 package project.controller;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
 
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,11 +17,14 @@ import project.model.User;
 //import com.csvreader.CsvReader; import com.csvreader.CSVWriter;
 
 public class MaintainUser {
-    public ArrayList<User> users = new ArrayList<>();
-//	public String path;
+    private String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
 
-    public void load(FileReader file) throws Exception {
+    // load users from the csv
+    public ArrayList<User> load() throws Exception {
+        FileReader file = new FileReader(filePath);
         CSVReader reader = new CSVReader(file);
+        ArrayList<User> users = new ArrayList<>();
+
         String[] line;
         //Skip first line
         reader.readNext();
@@ -29,12 +34,13 @@ public class MaintainUser {
             users.add(user);
         }
         reader.close();
+        return users;
     }
 
-
-    public void update(String path) throws Exception {
+    // updates the csv with new and existing users
+    public void update(ArrayList<User> users) throws Exception {
         try {
-            FileWriter output = new FileWriter(path);
+            FileWriter output = new FileWriter(this.filePath);
             CSVWriter writer = new CSVWriter(output);
             //name,id,email,password
             String[] header = {"name", "id", "email", "password"};
@@ -54,30 +60,30 @@ public class MaintainUser {
         }
     }
 
-    public static void main(String[] args) throws Exception {
-
-        String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
-        System.out.println(filePath);
-        FileReader p = new FileReader(filePath); //Buffer: Putting file in memory
-        MaintainUser maintain = new MaintainUser();
-
-
-        maintain.users.clear();
-
-
-        //Create new user
-        User newUser1 = new User("t10", 3, "t10@yorku.ca", "11141");
-        maintain.users.add(newUser1);
-        
-        User newUser2 = new User("t10", 3, "t10@yorku.ca", "11141");
-        maintain.users.add(newUser2);
-        //Load from csv to users array list
-        maintain.load(p);
-
-        for (User u : maintain.users) {
-            System.out.println(u.toString());
-        }
-
-        maintain.update(filePath);
-    }
+//    public static void main(String[] args) throws Exception {
+//
+//        String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
+//        System.out.println(filePath);
+//        FileReader p = new FileReader(filePath); //Buffer: Putting file in memory
+//        MaintainUser maintain = new MaintainUser();
+//
+//
+//        maintain.users.clear();
+//
+//
+//        //Create new user
+//        User newUser1 = new User("t10", 3, "t10@yorku.ca", "11141");
+//        maintain.users.add(newUser1);
+//
+//        User newUser2 = new User("t10", 3, "t10@yorku.ca", "11141");
+//        maintain.users.add(newUser2);
+//        //Load from csv to users array list
+//        maintain.load(p);
+//
+//        for (User u : maintain.users) {
+//            System.out.println(u);
+//        }
+//
+//        maintain.update(filePath);
+//    }
 }
