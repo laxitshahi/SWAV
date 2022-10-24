@@ -118,7 +118,8 @@ public class loginPage implements ActionListener {
             String id = idField.getText();
             String email = emailField.getText();
 
-            this.userPassword.registerUser(name, id, email, password); // TODO is this adding the user and pw to the loginInfo in this class or in userPassword class? probably this class
+            //TODO add id and email compatibility
+            this.userPassword.registerUser(name, "0", "email", password); // TODO is this adding the user and pw to the loginInfo in this class or in userPassword class? probably this class
 
             userField.setText("");
             pwField.setText("");

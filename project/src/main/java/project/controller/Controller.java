@@ -24,36 +24,4 @@ public class Controller {
         return data;
 
     }
-
-    public static void main(String[] args) {
-        String aCountry, startYear, endYear;
-        aCountry = "US";
-        startYear = "1700";
-        endYear = "1701";
-
-        //All inputs
-        String[] dataTypes =
-                {
-                        "population",
-                        "co2emissions",
-                        "gdppercapita",
-                        "forestarea",
-                        "healthexpenditure",
-                        "hospitalbeds",
-                        "agriculturalland",
-                        "mortalityunder5",
-                        "mortalityunderfive",
-                        "usingwatermanaged",
-                        "incomesharelowest20",
-                        "incomesharelowesttwenty",
-                        "mortalityinfant"
-                };
-
-        for (String d : dataTypes) {
-            HashMap<String, HashMap<Integer, Float>> jsonArray = getFilteredData(aCountry, d, startYear, endYear);
-            System.out.println("priting here");
-            System.out.println(jsonArray);
-            System.out.println(jsonArray.get(d));
-        }
-    }
 }
