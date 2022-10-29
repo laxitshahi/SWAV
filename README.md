@@ -4,5 +4,5 @@
 
 ### Contributors
 - [Laxit Shahi](https://www.linkedin.com/in/laxitshahi/) <br/>
--[Alessandro Genovese](https://github.com/alessand10) <br/>
+- [Alessandro Genovese](https://github.com/alessand10) <br/>
 - [Ahmed Khafaji](https://github.com/khafaji-ahmed)
