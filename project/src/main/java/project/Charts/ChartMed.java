@@ -11,12 +11,25 @@ public class ChartMed<K, V> {
     private ChartProperties chartProperties;
     private HashMap<K, ArrayList<HashMap<K, V>>> data;
 
+    /**
+     * takes in the types of charts to produce, the data, and chart properties
+     * The data is structure as HashMap<K, ArrayList<HashMap<K, V>>>
+     *     For ex, for a 3 series, York -> {["Gold", 3], ["Silver", 6], ["Bronze", 8]}
+     *
+     * @param chartType
+     * @param data
+     * @param chartProperties
+     */
     public ChartMed(ChartType chartType, HashMap<K, ArrayList<HashMap<K, V>>> data, ChartProperties chartProperties) {
         this.chartType = chartType;
         this.data = data;
         this.chartProperties = chartProperties;
     }
      
+
+    /**
+     * generates charts based on the valid chart types
+     */
     // TODO is there a better way to design this?
     public void genCharts() {
         if(chartType.BarChart) {
