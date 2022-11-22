@@ -3,47 +3,37 @@ package project.Charts;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.jfree.data.category.CategoryDataset;
+
 import project.Charts.ChartCharacteristics.ChartProperties;
 import project.Charts.ChartCharacteristics.ChartType;
 import project.Charts.ChartTypes.BarChart;
+import project.Charts.ChartTypes.LineChart;
+import project.Charts.ChartTypes.PieChart;
 
-public class ChartMed<K, V> {
+public class ChartMed<K, V, T, E> {
     private ChartType chartType;
     private ChartProperties chartProperties;
-    private HashMap<K, ArrayList<HashMap<K, V>>> data;
+    private HashMap<K, ArrayList<HashMap<T, V>>> data;
 
-    /**
-     * takes in the types of charts to produce, the data, and chart properties
-     * The data is structure as HashMap<K, ArrayList<HashMap<K, V>>>
-     *     For ex, for a 3 series, York -> {["Gold", 3], ["Silver", 6], ["Bronze", 8]}
-     *
-     * @param chartType
-     * @param data
-     * @param chartProperties
-     */
-    public ChartMed(ChartType chartType, HashMap<K, ArrayList<HashMap<K, V>>> data, ChartProperties chartProperties) {
+    public ChartMed(ChartType chartType, HashMap<K, ArrayList<HashMap<T, V>>> data, ChartProperties chartProperties) {
         this.chartType = chartType;
         this.data = data;
         this.chartProperties = chartProperties;
     }
      
-
-    /**
-     * generates charts based on the valid chart types
-     */
-    // TODO is there a better way to design this?
     public void genCharts() {
         if(chartType.BarChart) {
-            BarChart barChart = new BarChart<>(chartProperties, data);
+            BarChart<K, V, T, E> barChart = new BarChart<>(chartProperties, data);
             barChart.setVisible(true);
         }
-        // if(chartType.LineChart) {
-        //     LineChart lineChart = new LineChart(chartProperties, data);
-        //     lineChart.setVisible(true);
-        // }
-        // if(chartType.PieChart) {
-        //     PieChart pieChart = new PieChart(chartProperties, data);
-        //     pieChart.setVisible(true);
-        // }
+        if(chartType.LineChart) {
+            LineChart<K, V, T, E> lineChart = new LineChart<>(chartProperties, data);
+            lineChart.setVisible(true);
+        }
+        if(chartType.PieChart) {
+            PieChart<K, V, T, E> pieChart = new PieChart<>(chartProperties, data);
+            pieChart.setVisible(true);
+        }
     }
 }

@@ -2,6 +2,7 @@ package project.Charts.ChartTests;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.jfree.chart.plot.PlotOrientation;
 
@@ -11,35 +12,70 @@ import project.Charts.ChartCharacteristics.ChartType;
 
 public class ChartTest {
     public static void main(String[] args) {
-        HashMap<String, ArrayList<HashMap<String, Integer>>> data = genDataExample();
+        HashMap<String, ArrayList<HashMap<Integer, Integer>>> data = genDataExample();
         ChartProperties chartProperties = genChartPropertiesExample();
 
-        var chartMed = new ChartMed<>(new ChartType(true, false, false), data, chartProperties);
+        var chartMed = new ChartMed<>(new ChartType(false, false, true), data, chartProperties);
         chartMed.genCharts();
     }
     
-    public static HashMap<String, ArrayList<HashMap<String, Integer>>> genDataExample() {
-        HashMap<String, ArrayList<HashMap<String, Integer>>> data = new HashMap<>();
+    public static <K, T, V> HashMap<K, ArrayList<HashMap<T, V>>> genDataExample() {
+        HashMap<K, ArrayList<HashMap<T, V>>> data = new HashMap<>();
 
-        ArrayList<HashMap<String, Integer>> YorkList = new ArrayList<>();
-        YorkList.add(new HashMap<>(){{put("Gold", 4);}});
-        YorkList.add(new HashMap<>(){{put("Silver", 8);}});
-        YorkList.add(new HashMap<>(){{put("Bronze", 13);}});
+        // ArrayList<HashMap<T, V>> YorkList = new ArrayList<>();
+        // YorkList.add(new HashMap<T, V>() {{ put((T) "Gold", (V)((Object) 1)); }});
+        // YorkList.add(new HashMap<T, V>() {{ put((T) "Silver", (V)((Object) 4)); }});
+        // YorkList.add(new HashMap<T, V>() {{ put((T) "Bronze", (V)((Object) 6)); }});
 
-        ArrayList<HashMap<String, Integer>> TorontoList = new ArrayList<>();
-        TorontoList.add(new HashMap<>(){{put("Gold", 2);}});
-        TorontoList.add(new HashMap<>(){{put("Silver", 7);}});
-        TorontoList.add(new HashMap<>(){{put("Bronze", 14);}});
 
-        data.put("York", YorkList);
-        data.put("Toronto", TorontoList);
+        // ArrayList<HashMap<T, V>> TorontoList = new ArrayList<>();
+        // TorontoList.add(new HashMap<T, V>() {{ put((T) "Gold", (V)((Object) 4)); }});
+        // TorontoList.add(new HashMap<T, V>() {{ put((T) "Silver", (V)((Object) 7)); }});
+        // TorontoList.add(new HashMap<T, V>() {{ put((T) "Bronze", (V)((Object) 11)); }});
 
+
+        // data.put((K) "York", YorkList);
+        // data.put((K) "Toronto", TorontoList);
+
+        // ArrayList<HashMap<T, V>> canadaList = new ArrayList<>();
+        // // add population at year
+        // canadaList.add(new HashMap<>(){{put((T)((Object)2020), (V)((Object)2000));}});
+        // canadaList.add(new HashMap<>(){{put((T)((Object)2021), (V)((Object)1500));}});
+        // canadaList.add(new HashMap<>(){{put((T)((Object)2022), (V)((Object)1000));}});
+
+
+        // ArrayList<HashMap<T, V>> usList = new ArrayList<>();
+        // // add population at year
+        // usList.add(new HashMap<>(){{put((T)((Object)2020), (V)((Object)4000));}});
+        // usList.add(new HashMap<>(){{put((T)((Object)2021), (V)((Object)3000));}});
+        // usList.add(new HashMap<>(){{put((T)((Object)2022), (V)((Object)2000));}});
+
+        // ArrayList<HashMap<T, V>> uList = new ArrayList<>();
+        // // add population at year
+        // uList.add(new HashMap<>(){{put((T)((Object)2020), (V)((Object)400));}});
+        // uList.add(new HashMap<>(){{put((T)((Object)2021), (V)((Object)300));}});
+        // uList.add(new HashMap<>(){{put((T)((Object)2022), (V)((Object)200));}});
+
+        // data.put((K)"Canada", canadaList);
+        // data.put((K)"US", usList);
+        // data.put((K)"U", uList);
+
+
+        ArrayList<HashMap<T, V>> CanadaProfits = new ArrayList<>();
+        // add different areas of revenue
+        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Imports"), (V)((Object)32));}});
+        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Exports"), (V)((Object)42));}});
+        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Taxes"), (V)((Object)12));}});
+        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Other"), (V)((Object)14));}});
+
+        // add to hasmap
+        data.put((K)"Canada", CanadaProfits);
         return data;
     }
 
     // make sure series is the same for all data (must be less than or equal to the number of data points per entry)
     public static ChartProperties genChartPropertiesExample() {
-        return new ChartProperties(3, "Sports", "Country", "Medals", PlotOrientation.VERTICAL, true, true, false);
+        return new ChartProperties(3, "Canada MONEYS", "Country", "Medals", PlotOrientation.VERTICAL, true, true, false);
     }
 }
 
