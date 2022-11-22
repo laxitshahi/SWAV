@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import project.Charts.ChartCharacteristics.ChartProperties;
 import project.Charts.ChartCharacteristics.ChartType;
+import project.Charts.ChartTypes.BarChart;
 
 public class ChartMed<K, V> {
     private ChartType chartType;

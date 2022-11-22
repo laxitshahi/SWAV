@@ -1,4 +1,4 @@
-package project.Charts.ChartTesting;
+package project.Charts.ChartTests;
 
 import java.util.ArrayList;
 import java.util.HashMap;
