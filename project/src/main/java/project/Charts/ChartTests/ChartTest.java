@@ -15,10 +15,10 @@ public class ChartTest {
         HashMap<String, ArrayList<HashMap<Integer, Integer>>> data = genDataExample();
         ChartProperties chartProperties = genChartPropertiesExample();
 
-        var chartMed = new ChartMed<>(new ChartType(false, false, true), data, chartProperties);
+        var chartMed = new ChartMed<>(new ChartType(true, false, true), data, chartProperties);
         chartMed.genCharts();
     }
-    
+
     public static <K, T, V> HashMap<K, ArrayList<HashMap<T, V>>> genDataExample() {
         HashMap<K, ArrayList<HashMap<T, V>>> data = new HashMap<>();
 
@@ -63,13 +63,21 @@ public class ChartTest {
 
         ArrayList<HashMap<T, V>> CanadaProfits = new ArrayList<>();
         // add different areas of revenue
-        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Imports"), (V)((Object)32));}});
-        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Exports"), (V)((Object)42));}});
-        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Taxes"), (V)((Object)12));}});
-        CanadaProfits.add(new HashMap<>(){{put((T)((Object)"Other"), (V)((Object)14));}});
+        CanadaProfits.add(new HashMap<>() {{
+            put((T) ((Object) "Imports"), (V) ((Object) 32));
+        }});
+        CanadaProfits.add(new HashMap<>() {{
+            put((T) ((Object) "Exports"), (V) ((Object) 42));
+        }});
+        CanadaProfits.add(new HashMap<>() {{
+            put((T) ((Object) "Taxes"), (V) ((Object) 12));
+        }});
+        CanadaProfits.add(new HashMap<>() {{
+            put((T) ((Object) "Other"), (V) ((Object) 14));
+        }});
 
         // add to hasmap
-        data.put((K)"Canada", CanadaProfits);
+        data.put((K) "Canada", CanadaProfits);
         return data;
     }
 

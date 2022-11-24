@@ -99,8 +99,6 @@ public class loginPage implements ActionListener {
             String email = emailField.getText();
 
             msgLabel.setText("");
-
-            // TODO add id and email compatibility
             if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 2) {
                 msgLabel.setText("login succesful");
                 frame.dispose();

@@ -1,23 +1,37 @@
 package project.view;
 
-import java.awt.Font;
+import java.awt.*;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class welcomePage {
-	JFrame frame = new JFrame();
-	JLabel welcomeLabel = new JLabel();
-	
-	public welcomePage(String user) {
-		welcomeLabel.setBounds(0, 0, 200, 25);
-		welcomeLabel.setFont(new Font(null, Font.PLAIN, 20));
-		welcomeLabel.setText("Welcome, " + user + "!");
-		
-		frame.add(welcomeLabel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(600, 400);
-		frame.setLayout(null);
-		frame.setVisible(true);
-	}
+
+    public welcomePage(String user) {
+        //Get screen size
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+
+        //Set up frame
+
+
+        JLabel welcomeLabel = new JLabel();
+        welcomeLabel.setBounds(dimension.width / 2, 20, 200, 25);
+        welcomeLabel.setFont(new Font(null, Font.PLAIN, 20));
+        welcomeLabel.setText("Welcome, " + user + "!");
+
+        JLabel intro = new JLabel();
+        JLabel desc = new JLabel();
+        intro.setText("Follow the directions below to get started.");
+        desc.setText("1. Select data type \r\n 2. Select Country \r\n 3. Select Graphs");
+
+
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(dimension);
+        frame.setVisible(true);
+        //Add to frame
+        frame.add(welcomeLabel);
+        frame.add(intro);
+        frame.add(desc);
+    }
 }
