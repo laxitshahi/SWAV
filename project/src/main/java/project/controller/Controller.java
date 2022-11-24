@@ -21,6 +21,5 @@ public class Controller {
         HashMap<Integer, Float> yearlyData = filterDataAsFloat(responseData);
         data.put(dataType, yearlyData);
         return data;
-
     }
 }
