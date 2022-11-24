@@ -18,6 +18,15 @@ public class ChartTest {
         var chartMed = new ChartMed<>(new ChartType(true, true, true), data, chartProperties);
         chartMed.genCharts();
     }
+
+    public void testCharts(ChartType chartType) {
+        HashMap<String, ArrayList<HashMap<Integer, Integer>>> data = genDataExample();
+        ChartProperties chartProperties = genChartPropertiesExample();
+
+        var chartMed = new ChartMed<>(chartType, data, chartProperties);
+        chartMed.genCharts();
+    }
+
     
     public static <K, T, V> HashMap<K, ArrayList<HashMap<T, V>>> genDataExample() {
         HashMap<K, ArrayList<HashMap<T, V>>> data = new HashMap<>();

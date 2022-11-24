@@ -28,12 +28,10 @@ public class LineChart<K, V, T, E> extends Chart<K, V, T, E> {
         for(K key : data.keySet()) {
             // create a new XYSeries for each key
             XYSeries series1 = new XYSeries(key.toString());
-            System.out.println("Country Key: " + key.toString());
             // iterate through the arraylist of hashmaps
             for(HashMap<T, V> map : data.get(key)) {
                 // add the data to the XYSeries
                 series1.add((Number) map.keySet().toArray()[0], (Number) map.get(map.keySet().toArray()[0]));
-                System.out.println("Year Key: " + map.keySet().toArray()[0] + " Value: " + map.get(map.keySet().toArray()[0]));
             }
             ((DefaultXYDataset) dataset).addSeries(key.toString(), series1.toArray());
         }
