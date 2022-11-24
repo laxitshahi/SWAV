@@ -4,11 +4,8 @@ import project.controller.Controller;
 
 import java.util.HashMap;
 
-public class AverageAnalysisBase {
-    static protected String country;
+public class AverageAnalysisBase extends AnalysisBase {
     static protected String dataSeries;
-    static protected String startYear;
-    static protected String endYear;
 
     public HashMap<String, Float> getAnalyzedData() {
         HashMap<String, Float> result = new HashMap<>();

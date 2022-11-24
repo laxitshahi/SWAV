@@ -10,6 +10,9 @@ import project.controller.Controller;
  * Maintains both a list of years and viewers for which this analysis is valid.
  */
 abstract public class AnalysisBase {
+    static protected String country;
+    static protected String startYear;
+    static protected String endYear;
     /**
      * Stores the years for which analysis cannot be performed, loaded in at initialization time
      */
