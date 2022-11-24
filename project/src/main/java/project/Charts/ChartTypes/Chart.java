@@ -8,6 +8,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
 import project.Charts.ChartCharacteristics.ChartProperties;
+import project.view.WelcomePage;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -17,14 +18,14 @@ public abstract class Chart<K, V, T, E> extends JFrame {
 
     public abstract JFreeChart createChart(ChartProperties chartProperties, E dataset);
 
-    public void initUI(JFreeChart chart) {
+    public void initUI(JFreeChart chart, String layout) {
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         chartPanel.setBackground(Color.white);
-        // add(chartPanel);
         
-        pack();
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
+        WelcomePage.getInstance().addChart(chartPanel, layout);
+        // pack();
+        // setLocationRelativeTo(null);
+        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
     }
 }

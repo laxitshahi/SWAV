@@ -1,14 +1,14 @@
 package project.view;
 
 import java.awt.Font;
+import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import org.jfree.chart.ChartPanel;
 
-public class WelcomePage {
-	JFrame frame = new JFrame();
+public class WelcomePage extends JFrame{
 	JLabel welcomeLabel = new JLabel();
 	private static WelcomePage welcomePage = new WelcomePage();
 
@@ -17,19 +17,17 @@ public class WelcomePage {
 		welcomeLabel.setFont(new Font(null, Font.PLAIN, 20));
 		welcomeLabel.setText("Welcome!");
 		
-		frame.add(welcomeLabel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(600, 400);
-		frame.setLayout(null);
-		frame.setVisible(true);
+		add(welcomeLabel, BorderLayout.PAGE_START);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setSize(600, 400);
+		setLayout(new java.awt.GridLayout());
+		setVisible(true);
 	}
 
-	public void addChart(ChartPanel cp) {
-		frame.add(cp);
-	}
-
-	public void update(ChartPanel cp) {
-		frame.add(cp);
+	public void addChart(ChartPanel cp, String borderLayout) {
+		add(cp, borderLayout);
+		// pack();
+		// validate();
 	}
 
 	public static WelcomePage getInstance() {

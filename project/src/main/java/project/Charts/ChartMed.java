@@ -25,15 +25,15 @@ public class ChartMed<K, V, T, E> {
     public void genCharts() {
         if(chartType.BarChart) {
             BarChart<K, V, T, E> barChart = new BarChart<>(chartProperties, data);
-            barChart.setVisible(true);
+            // barChart.setVisible(true);
         }
         if(chartType.LineChart) {
             LineChart<K, V, T, E> lineChart = new LineChart<>(chartProperties, data);
-            lineChart.setVisible(true);
+            // lineChart.setVisible(true);
         }
         if(chartType.PieChart) {
             PieChart<K, V, T, E> pieChart = new PieChart<>(chartProperties, data);
-            pieChart.setVisible(true);
+            // pieChart.setVisible(true);
         }
     }
 }

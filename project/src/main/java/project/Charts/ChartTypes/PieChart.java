@@ -1,5 +1,6 @@
 package project.Charts.ChartTypes;
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -14,7 +15,7 @@ public class PieChart<K, V, T, E> extends Chart<K, V, T, E> {
     public PieChart(ChartProperties chartProperties, HashMap<K, ArrayList<HashMap<T, V>>> data) {
         E dataset = this.createDataset(data, chartProperties.series);
         JFreeChart chart = this.createChart(chartProperties, dataset);
-        this.initUI(chart);
+        this.initUI(chart, BorderLayout.LINE_END);
     }
 
     /**

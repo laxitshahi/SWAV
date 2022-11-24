@@ -1,5 +1,6 @@
 package project.Charts.ChartTypes;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +21,7 @@ public class BarChart<K, V, T, E> extends Chart<K, V, T, E> {
     public BarChart(ChartProperties chartProperties, HashMap<K, ArrayList<HashMap<T, V>>> data) {
         E dataset = this.createDataset(data, chartProperties.series);
         JFreeChart chart = this.createChart(chartProperties, dataset);
-        this.initUI(chart);
+        this.initUI(chart, BorderLayout.LINE_START);
     }
 
     public E createDataset(HashMap<K, ArrayList<HashMap<T, V>>> data, int series) {

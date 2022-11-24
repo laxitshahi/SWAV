@@ -33,7 +33,7 @@ public class loginPage implements ActionListener {
         this.userPassword = new userPassword();
 
         userLabel.setBounds(50, 100, 75, 25);
-        pwLabel.setBounds(50, 150, 75, 25);
+        pwLabel.setBounds(50, 150, 100, 25);
         idLabel.setBounds(50, 200, 75, 25);
         emailLabel.setBounds(50, 250, 75, 25);
 
@@ -54,11 +54,25 @@ public class loginPage implements ActionListener {
 
         frame.add(userLabel);
         frame.add(pwLabel);
+        frame.add(idLabel);
+        frame.add(emailLabel);
         frame.add(msgLabel);
+
         frame.add(userField);
         frame.add(pwField);
+        frame.add(idField);
+        frame.add(emailField);
+
         frame.add(loginButton);
         frame.add(registerButton);
+        frame.add(registerNowButton);
+
+        idField.setVisible(false);
+        emailField.setVisible(false);
+        idLabel.setVisible(false);
+        emailLabel.setVisible(false);
+        registerNowButton.setVisible(false);
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 500);
         frame.setLayout(null);
@@ -75,22 +89,20 @@ public class loginPage implements ActionListener {
             pwField.setText("");
             idField.setText("");
             emailField.setText("");
+
             idLabel.setVisible(true);
             emailLabel.setVisible(true);
+            
             idField.setVisible(true);
             emailField.setVisible(true);
             loginButton.setVisible(false);
             registerButton.setVisible(false);
+            registerNowButton.setVisible(true);
 
 
             registerNowButton.setBounds(150, 300, 150, 25);
             registerNowButton.addActionListener(this);
             registerNowButton.setFocusable(false);
-            frame.add(idLabel);
-            frame.add(emailLabel);
-            frame.add(idField);
-            frame.add(emailField);
-            frame.add(registerNowButton);
         }
         if (e.getSource() == loginButton) {
             String name = userField.getText();
@@ -118,7 +130,7 @@ public class loginPage implements ActionListener {
             String email = emailField.getText();
 
             //TODO add id and email compatibility
-            this.userPassword.registerUser(name, "0", "email", password); // TODO is this adding the user and pw to the loginInfo in this class or in userPassword class? probably this class
+            this.userPassword.registerUser(name, id, email, password); // TODO is this adding the user and pw to the loginInfo in this class or in userPassword class? probably this class
 
             userField.setText("");
             pwField.setText("");
@@ -127,8 +139,10 @@ public class loginPage implements ActionListener {
 
             idField.setVisible(false);
             emailField.setVisible(false);
+
             idLabel.setVisible(false);
             emailLabel.setVisible(false);
+            
             registerNowButton.setVisible(false);
             loginButton.setVisible(true);
             registerButton.setVisible(true);
