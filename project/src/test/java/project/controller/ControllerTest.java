@@ -2,13 +2,13 @@ package project.controller;
 
 import org.junit.jupiter.api.Test;
 
+import javax.naming.ldap.Control;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static project.controller.Controller.*;
 
 class ControllerTest {
-
     @Test
     void yearlyData() {
         String aCountry, dataType, startYear, endYear;
@@ -17,7 +17,8 @@ class ControllerTest {
         startYear = "2000";
         endYear = "2001";
 
-        HashMap<Integer, Float> yearlyData = getFilteredData(aCountry, dataType, startYear, endYear).get(dataType);
+
+        HashMap<Integer, Float> yearlyData = Controller.getFilteredData(aCountry, dataType, startYear, endYear).get(dataType);
 
         /*
          * @Test 1
