@@ -1,14 +1,20 @@
 package project.analysis;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import project.controller.Controller;
 
 
-public class AForestAreaAvg extends AnalysisBase {
-    public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {
-        HashMap<String, HashMap<Integer, Float>> result = new HashMap<String, HashMap<Integer, Float>>();
+public class AForestAreaAvg extends AverageAnalysisBase {
+    private AForestAreaAvg(){};
+    static private AForestAreaAvg analysisObj = new AForestAreaAvg();
 
-        return result;
+    static public AForestAreaAvg getAnalysisObj(String country, String startYear, String endYear) {
+        AForestAreaAvg.country = country;
+        AForestAreaAvg.dataSeries = "forestarea";
+        AForestAreaAvg.startYear = startYear;
+        AForestAreaAvg.endYear = endYear;
+        return analysisObj;
     }
 }

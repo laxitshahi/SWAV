@@ -2,17 +2,16 @@ package project.analysis;
 
 import java.util.HashMap;
 
-public class ANetUsersElecAccessRat extends AnalysisBase {
-    String c = "", dt1 = "indiviualsusinginternet",
-            dt2 = "accesstoelectricity", start = "", end = "";
+public class ANetUsersElecAccessRat extends RatioAnalysisBase {
+    private ANetUsersElecAccessRat(){};
+    static private ANetUsersElecAccessRat analysisObj = new ANetUsersElecAccessRat();
 
-    public void config(String country, String startYear, String endYear) {
-        c = country;
-        start = startYear;
-        end = endYear;
-    }
-
-    public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {
-        return getRatioHelper(c, dt1, dt2, start, end);
+    static public ANetUsersElecAccessRat getAnalysisObj(String country, String startYear, String endYear) {
+        RatioAnalysisBase.country = country;
+        RatioAnalysisBase.numData = "indiviualsusinginternet";
+        RatioAnalysisBase.denomData = "accesstoelectricity";
+        RatioAnalysisBase.startYear = startYear;
+        RatioAnalysisBase.endYear = endYear;
+        return analysisObj;
     }
 }
