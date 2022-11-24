@@ -60,7 +60,7 @@ public class loginPage implements ActionListener {
         frame.add(loginButton);
         frame.add(registerButton);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500, 400);
+        frame.setSize(500, 500);
         frame.setLayout(null);
         frame.setVisible(true);
     }
@@ -104,9 +104,8 @@ public class loginPage implements ActionListener {
             if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 2) {
                 msgLabel.setText("login succesful");
                 frame.dispose();
-                welcomePage wPage = new welcomePage(name);
+                WelcomePage wPage = WelcomePage.getInstance();
             } else if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 1) {
-
                 msgLabel.setText("either user or password incorrect");
             } else if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 0) {
                 msgLabel.setText("you must register");
@@ -133,7 +132,6 @@ public class loginPage implements ActionListener {
             registerNowButton.setVisible(false);
             loginButton.setVisible(true);
             registerButton.setVisible(true);
-
         }
     }
 
