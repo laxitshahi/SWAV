@@ -9,10 +9,13 @@ public abstract class RatioAnalysisBase extends AnalysisBase {
     static protected String numData;
     static protected String denomData;
 
-    public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {
+    /*
+    * @param cData1 the data in the numerator for this analysis type
+    * @param cData2 the data in the denominator for this analysis type
+    * @return The hashmap containing the resulting analyzed data
+    **/
+    public HashMap<String, HashMap<Integer, Float>> getAnalyzedDataHelper(HashMap<String, HashMap<Integer, Float>> cData1, HashMap<String, HashMap<Integer, Float>> cData2) {
         HashMap<String, HashMap<Integer, Float>> result = new HashMap<String, HashMap<Integer, Float>>();
-        HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(country, numData, startYear, endYear);
-        HashMap<String, HashMap<Integer, Float>> cData2 = Controller.getFilteredData(country, denomData, startYear, endYear);
         HashMap<Integer, Float> ratioResult = new HashMap<>();
 
         for (Integer key : cData1.get(numData).keySet()) {
@@ -26,5 +29,14 @@ public abstract class RatioAnalysisBase extends AnalysisBase {
         }
         result.put("Ratio", ratioResult);
         return result;
+    }
+
+    /*
+     * @return The processed data for this analysis type
+     **/
+    public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {
+        HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(country, numData, startYear, endYear);
+        HashMap<String, HashMap<Integer, Float>> cData2 = Controller.getFilteredData(country, denomData, startYear, endYear);
+        return getAnalyzedDataHelper(cData1, cData2);
     }
 }

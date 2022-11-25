@@ -10,7 +10,7 @@ public class AHealthExpHospBedRat extends RatioAnalysisBase {
     private AHealthExpHospBedRat(){};
     static private AHealthExpHospBedRat analysisObj = new AHealthExpHospBedRat();
 
-    public AHealthExpHospBedRat getAnalysisObj(String country, String startYear, String endYear) {
+    static public AHealthExpHospBedRat getAnalysisObj(String country, String startYear, String endYear) {
         AHealthExpHospBedRat.country = country;
         AHealthExpHospBedRat.numData = "healthexpenditure";
         AHealthExpHospBedRat.denomData = "hospitalbeds";
