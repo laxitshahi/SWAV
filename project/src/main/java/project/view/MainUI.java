@@ -25,7 +25,9 @@ public class MainUI extends JFrame implements ActionListener {
 
     //All Options
     String[] countries = {"-Select Country-", "GLOBAL", "USA", "CANADA", "BRAZIL", "GERMANY", "SPAIN", "FRANCE"};
-    String[] analysisType = {"-Selct Analysis-", "AC02GDPRatio", "AForestAgricultureAreaComp", "AForestAreaAvg", "AHealthAccessMortRateComp" };
+
+
+    String[] analysisType = {"-Selct Analysis-", "AC02GDPRat" , "AForestAgricultureAreaComp", "AForestAreaAvg", "AHealthAccessMortRateComp", "AHealthExpHospBedRat", "AMethaneC02DisasterComp", "AMortRateSafeWaterComp", "ANetUsersElecAccessRat"};
     JComboBox<String> selectCountry = new JComboBox<>(countries);
     JComboBox<String> selectAnalysis = new JComboBox<>(analysisType);
     final static int CURRENT_YEAR = 2022;
@@ -283,9 +285,3 @@ public class MainUI extends JFrame implements ActionListener {
     }
         
 }
-
-//        JLabel welcomeNote = new JLabel("Welcome to SWAV!"); //You can directly initialize
-//        welcomeNote.setIcon(image);
-//        welcomeNote.setHorizontalTextPosition(JLabel.CENTER);
-//        welcomeNote.setVerticalTextPosition(JLabel.TOP);
-//        add(welcomeNote);
