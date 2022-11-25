@@ -5,11 +5,13 @@ import project.controller.Controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class AverageAnalysisBase extends AnalysisBase {
+public class AverageAnalysisBase extends AnalysisBase<String, String, Float> {
     static protected String dataSeries;
 
-    public HashMap<String, Float> getAnalyzedDataHelper(HashMap<String, HashMap<Integer, Float>> data) {
-        HashMap<String, Float> result = new HashMap<String, Float>();
+    public HashMap<String, HashMap<String, Float>> getAnalyzedDataHelper(HashMap<String, HashMap<Integer, Float>> data) {
+        HashMap<String, HashMap<String, Float>> result = new HashMap<String, HashMap<String, Float>>();
+        HashMap<String, Float> average = new HashMap<String, Float>();
+        result.put(country, average);
         if (data.keySet().size() != 0){
             String outerKey = (new ArrayList<String>(data.keySet())).get(0);
             Float sum = 0.f;
@@ -21,17 +23,19 @@ public class AverageAnalysisBase extends AnalysisBase {
             }
             if (pointCount != 0) {
                 sum /= pointCount;
-                result.put(outerKey, sum);
+                average.put(dataSeries, sum);
             }
             else {
-                result.put(outerKey, 0.f);
+                average.put(dataSeries, 0.f);
             }
         }
         return result;
     }
-    public HashMap<String, Float> getAnalyzedData() {
+
+    // Adjusts for compatibility with the chart classes
+    public HashMap<String, ArrayList<HashMap<String, Float>>> getAnalyzedData() {
         HashMap<String, Float> result = new HashMap<>();
         HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(country, dataSeries, startYear, endYear);
-        return getAnalyzedDataHelper(cData1);
+        return convertToGraphFormat(getAnalyzedDataHelper(cData1));
     }
 }

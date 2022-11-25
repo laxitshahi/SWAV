@@ -78,22 +78,22 @@ public class AnalysisTest {
         HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
 
         // Input is empty
-        HashMap<String, Float> data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
-        assert (data.keySet().size() == 0);
+        HashMap<String, HashMap<String,Float>> data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
+        assert (data.get("DNC").keySet().size() == 0);
 
         // Tests
         HashMap<Integer, Float> data1 = new HashMap<Integer, Float>();
         data1.put(2000, 10.f);
-        country1Data.put("mortalityunder5", data1);
+        country1Data.put("forestarea", data1);
 
         data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
-        Assert.assertEquals( 10.f, data.get("mortalityunder5"), 0.01f);
+        Assert.assertEquals( 10.f, data.get("DNC").get("forestarea"), 0.01f);
 
         data1.put(2001, 2.f);
-        country1Data.put("mortalityunder5", data1);
+        country1Data.put("forestarea", data1);
 
         data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
-        Assert.assertEquals( 6.f, data.get("mortalityunder5"), 0.01f);
+        Assert.assertEquals( 6.f, data.get("DNC").get("forestarea"), 0.01f);
 
     }
 }

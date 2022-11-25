@@ -9,7 +9,7 @@ import project.controller.Controller;
  * The base class of all analysis types.
  * Maintains both a list of years and viewers for which this analysis is valid.
  */
-abstract public class AnalysisBase {
+abstract public class AnalysisBase<K, T, V> {
     static protected String country;
     static protected String startYear;
     static protected String endYear;
@@ -23,6 +23,21 @@ abstract public class AnalysisBase {
      * initialization time.
      */
     protected ArrayList<String> validViewers = new ArrayList<String>();
+
+    protected HashMap<K, ArrayList<HashMap<T, V>>> convertToGraphFormat(HashMap<K, HashMap<T, V>> preData) {
+        HashMap<K, ArrayList<HashMap<T, V>>> result = new HashMap<K, ArrayList<HashMap<T, V>>>();
+        for (K outerKey : preData.keySet()) {
+            ArrayList<HashMap<T, V>> innerList = new ArrayList<>();
+            result.put(outerKey, innerList);
+            for (T innerKey : preData.get(outerKey).keySet()) {
+                HashMap<T, V> innerMap = new HashMap<T, V>();
+                innerMap.put(innerKey, preData.get(outerKey).get(innerKey));
+                innerList.add(innerMap);
+            }
+        }
+        return result;
+    }
+
 
     /**
      * @param c        The country whose data y

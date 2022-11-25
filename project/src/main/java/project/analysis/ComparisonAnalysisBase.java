@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public abstract class ComparisonAnalysisBase extends AnalysisBase {
+public abstract class ComparisonAnalysisBase extends AnalysisBase<String, Integer, Float> {
     static protected ArrayList<String> dataSeries;
 
     public HashMap<String, HashMap<Integer, Float>> getAnalyzedDataHelper(ArrayList<HashMap<String, HashMap<Integer, Float>>> data) {
@@ -18,11 +18,11 @@ public abstract class ComparisonAnalysisBase extends AnalysisBase {
         }
         return result;
     }
-    public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {
+    public HashMap<String, ArrayList<HashMap<Integer, Float>>> getAnalyzedData() {
         ArrayList<HashMap<String, HashMap<Integer, Float>>> dataSet = new ArrayList<HashMap<String, HashMap<Integer, Float>>>();
         for (String series : dataSeries){
             dataSet.add(Controller.getFilteredData(country, series, startYear, endYear));
         }
-        return getAnalyzedDataHelper(dataSet);
+        return convertToGraphFormat(getAnalyzedDataHelper(dataSet));
     }
 }
