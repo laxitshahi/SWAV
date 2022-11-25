@@ -12,9 +12,9 @@ import project.view.Charts.ChartTypes.PieChart;
 public class ChartMed<K, V, T, E> {
     private ChartType chartType;
     private ChartProperties chartProperties;
-    private HashMap<K, ArrayList<HashMap<T, V>>> data;
+    private HashMap<K, HashMap<T, V>> data;
 
-    public ChartMed(ChartType chartType, HashMap<K, ArrayList<HashMap<T, V>>> data, ChartProperties chartProperties) {
+    public ChartMed(ChartType chartType, HashMap<K, HashMap<T, V>> data, ChartProperties chartProperties) {
         this.chartType = chartType;
         this.data = data;
         this.chartProperties = chartProperties;

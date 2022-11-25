@@ -9,6 +9,8 @@ import java.util.Objects;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import org.jfree.chart.ChartPanel;
+
 
 public class MainUI extends JFrame implements ActionListener {
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
@@ -188,6 +190,11 @@ public class MainUI extends JFrame implements ActionListener {
         }
 
     }
+
+
+	public void addChart(ChartPanel chartPanel) {
+        
+	}
 }
 //        JLabel welcomeNote = new JLabel("Welcome to SWAV!"); //You can directly initialize
 //        welcomeNote.setIcon(image);

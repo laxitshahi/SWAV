@@ -12,22 +12,22 @@ import project.view.Charts.ChartCharacteristics.ChartProperties;
 
 public class PieChart<K, V, T, E> extends Chart<K, V, T, E> {
 
-    public PieChart(ChartProperties chartProperties, HashMap<K, ArrayList<HashMap<T, V>>> data) {
+    public PieChart(ChartProperties chartProperties, HashMap<K, HashMap<T, V>> data) {
         E dataset = this.createDataset(data, chartProperties.series);
         JFreeChart chart = this.createChart(chartProperties, dataset);
-        this.initUI(chart, BorderLayout.LINE_END);
+        this.initUI(chart);
     }
 
     /**
      * Percentage of the pie chart must sum to 100
      */
-    public E createDataset(HashMap<K, ArrayList<HashMap<T, V>>> data, int series) {
+    public E createDataset(HashMap<K, HashMap<T, V>> data, int series) {
         // go through keys in data
         E dataset = (E) new DefaultPieDataset();
         
         for(K key : data.keySet()) {
-            for(HashMap<T, V> map : data.get(key)) {
-                ((DefaultPieDataset) dataset).setValue(map.keySet().toArray()[0].toString(), (Number) map.get(map.keySet().toArray()[0]));
+            for(T innerKey : data.get(key).keySet()) {
+                ((DefaultPieDataset) dataset).setValue(innerKey.toString(), (Number) data.get(key).get(innerKey));
             }
         }
 
