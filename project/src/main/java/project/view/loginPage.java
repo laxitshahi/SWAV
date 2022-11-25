@@ -107,7 +107,7 @@ public class loginPage implements ActionListener {
         }
         if (e.getSource() == loginButton) {
             // Change this once testing is done else login will work w/o auth
-            userField.setText("testing"); pwField.setText("testing");
+//            userField.setText("testing"); pwField.setText("testing");
 
             String name = userField.getText();
             String password = String.valueOf(pwField.getPassword());
