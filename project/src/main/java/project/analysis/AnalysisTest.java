@@ -81,7 +81,7 @@ public class AnalysisTest {
         HashMap<String, Float> data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
         assert (data.keySet().size() == 0);
 
-        // Tests 
+        // Tests
         HashMap<Integer, Float> data1 = new HashMap<Integer, Float>();
         data1.put(2000, 10.f);
         country1Data.put("mortalityunder5", data1);
