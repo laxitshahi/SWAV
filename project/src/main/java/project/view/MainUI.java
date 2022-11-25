@@ -245,20 +245,28 @@ public class MainUI extends JFrame implements ActionListener {
         switch (currAnalysis) {
             case "AC02GDPRat":
                 AC02GDPRat.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
             case "AForestAgricultureAreaComp":
                 AForestAgricultureAreaComp.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
             case "AForestAreaAvg":
-                AForestAreaAvg.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+                AForestAreaAvg.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
             case "AHealthAccessMortRateComp":
-                AHealthAccessMortRateComp.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+                AHealthAccessMortRateComp.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
             case "AHealthExpHospBedRat":
-                AHealthExpHospBedRat.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+                AHealthExpHospBedRat.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
             case "AMethaneC02DisasterComp":
-                AMethaneC02DisasterComp.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+                AMethaneC02DisasterComp.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
             case "AMortRateSafeWaterComp":
-                AMortRateSafeWaterComp.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+                AMortRateSafeWaterComp.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
             case "ANetUsersElecAccessRat":
-                ANetUsersElecAccessRat.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+                ANetUsersElecAccessRat.getAnalysisObj(currCountry, start, end).startGen(ct);
+                break;
 
         }
     }

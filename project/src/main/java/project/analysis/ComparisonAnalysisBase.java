@@ -6,7 +6,6 @@ import project.view.Charts.ChartMed;
 import project.view.Charts.ChartCharacteristics.ChartProperties;
 import project.view.Charts.ChartCharacteristics.ChartType;
 
-
 import org.jfree.chart.plot.PlotOrientation;
 
 import java.util.ArrayList;
