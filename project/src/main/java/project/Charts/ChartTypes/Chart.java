@@ -25,6 +25,7 @@ public abstract class Chart<K, V, T, E> extends JFrame {
         
         WelcomePage.getInstance().addChart(chartPanel, layout);
         // pack();
+        // validate();
         // setLocationRelativeTo(null);
         // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);    
     }

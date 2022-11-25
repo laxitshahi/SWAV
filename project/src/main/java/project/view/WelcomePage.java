@@ -73,8 +73,8 @@ public class WelcomePage extends JFrame implements ActionListener {
 
 	public void addChart(ChartPanel cp, String borderLayout) {
 		add(cp, borderLayout);
-		// pack();
-		// validate();
+		pack();
+		validate();
 	}
 
 	public static WelcomePage getInstance() {
