@@ -1,22 +1,20 @@
-package project.Charts;
+package project.view.Charts;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.jfree.data.category.CategoryDataset;
-
-import project.Charts.ChartCharacteristics.ChartProperties;
-import project.Charts.ChartCharacteristics.ChartType;
-import project.Charts.ChartTypes.BarChart;
-import project.Charts.ChartTypes.LineChart;
-import project.Charts.ChartTypes.PieChart;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartType;
+import project.view.Charts.ChartTypes.BarChart;
+import project.view.Charts.ChartTypes.LineChart;
+import project.view.Charts.ChartTypes.PieChart;
 
 public class ChartMed<K, V, T, E> {
     private ChartType chartType;
     private ChartProperties chartProperties;
-    private HashMap<K, ArrayList<HashMap<T, V>>> data;
+    private HashMap<K, HashMap<T, V>> data;
 
-    public ChartMed(ChartType chartType, HashMap<K, ArrayList<HashMap<T, V>>> data, ChartProperties chartProperties) {
+    public ChartMed(ChartType chartType, HashMap<K, HashMap<T, V>> data, ChartProperties chartProperties) {
         this.chartType = chartType;
         this.data = data;
         this.chartProperties = chartProperties;

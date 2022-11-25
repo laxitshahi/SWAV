@@ -1,4 +1,4 @@
-package project.Charts.ChartCharacteristics;
+package project.view.Charts.ChartCharacteristics;
 
 public class ChartType {
     public boolean BarChart;

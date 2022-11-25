@@ -13,4 +13,9 @@
       <module name="software-design-project" target="11" />
     </bytecodeTargetLevel>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="software-design-project" options="--add-modules java.desktop" />
+    </option>
+  </component>
 </project>
