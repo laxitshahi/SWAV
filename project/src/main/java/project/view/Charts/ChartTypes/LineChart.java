@@ -11,13 +11,14 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 
 import project.view.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartType;
 
 public class LineChart<K, V, T, E> extends Chart<K, V, T, E> {
 
     public LineChart(ChartProperties chartProperties, HashMap<K, HashMap<T, V>> data) {
         E dataset = this.createDataset(data, chartProperties.series);
         JFreeChart chart = this.createChart(chartProperties, dataset);
-        this.initUI(chart);
+        this.initUI(chart, new ChartType(false, true, false));
     }
 
     public E createDataset(HashMap<K, HashMap<T, V>> data, int series) {

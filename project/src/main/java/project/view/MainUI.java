@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
 
 import javax.swing.*;
@@ -11,10 +12,16 @@ import javax.swing.border.Border;
 
 import org.jfree.chart.ChartPanel;
 
+import project.analysis.*;
+import project.view.Charts.ChartCharacteristics.ChartType;
+
 
 public class MainUI extends JFrame implements ActionListener {
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
     private static final MainUI mainUI = new MainUI();
+    private JPanel barPanel = new JPanel();
+    private JPanel piePanel = new JPanel();
+    private JPanel linePanel = new JPanel();
 
     //All Options
     String[] countries = {"-Select Country-", "GLOBAL", "USA", "CANADA", "BRAZIL", "GERMANY", "SPAIN", "FRANCE"};
@@ -56,6 +63,37 @@ public class MainUI extends JFrame implements ActionListener {
         leftPanel.setLayout(new GridLayout(10,4));
         leftPanel.setBorder(border);
         add(leftPanel);
+
+                /*
+         * Bar Panel Container
+         */
+        barPanel = new JPanel();
+        barPanel.setBackground(Color.WHITE);
+        barPanel.setBounds(400,0, 700, (dimension.height/3) + 50);
+        barPanel.setLayout(new GridLayout(2,3));
+        barPanel.setBorder(border);
+        add(barPanel);
+
+        /*
+         * Pie Panel Container
+         */
+        piePanel = new JPanel();
+        piePanel.setBackground(Color.WHITE);
+        piePanel.setBounds(900,0, 700, (dimension.height/3) + 50);
+        piePanel.setLayout(new GridLayout(2,3));
+        piePanel.setBorder(border);
+        add(piePanel);
+
+        /*
+         * Line Panel Container
+         */
+        linePanel = new JPanel();
+        linePanel.setBackground(Color.WHITE);
+        linePanel.setBounds(600, 600, 700, (dimension.height/3) + 50);
+        linePanel.setLayout(new GridLayout(2,3));
+        linePanel.setBorder(border);
+        add(linePanel);
+
 
         /*
         * @Country Select
@@ -168,6 +206,10 @@ public class MainUI extends JFrame implements ActionListener {
             boolean isBar = barRadio.isSelected();
             boolean isLine= lineRadio.isSelected();
 
+            ChartType ct = makeType(isPi, isBar, isLine);
+            getAnalysisObj(currCountry, currAnalysis, start, end, ct);
+
+
             System.out.println("Submitted");
             System.out.println("Selected Country: " + currCountry);
             System.out.println("Selected Analysis: " + currAnalysis);
@@ -177,6 +219,7 @@ public class MainUI extends JFrame implements ActionListener {
             System.out.println("Bar is Selected: " + isBar);
             System.out.println("Line is Selected: " + isLine);
         }
+
 
         //Reset all options on click
         if(e.getSource() == reset){
@@ -191,11 +234,56 @@ public class MainUI extends JFrame implements ActionListener {
 
     }
 
+    public ChartType makeType(boolean isPi, boolean isBar, boolean isLine){
+        return new ChartType(isBar, isLine, isPi);
+    }
 
-	public void addChart(ChartPanel chartPanel) {
+    public void getAnalysisObj(String currCountry, String currAnalysis, String start, String end, ChartType ct) {
         
-	}
+        switch (currAnalysis) {
+            case "AC02GDPRat":
+                //data = AC02GDPRat.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+            case "AForestAgricultureAreaComp":
+                AForestAgricultureAreaComp.getAnalysisObj(currCountry, start, end).startGen(ct);
+            case "AForestAreaAvg":
+                //AForestAreaAvg.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+            case "AHealthAccessMortRateComp":
+                // AHealthAccessMortRateComp.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+            case "AHealthExpHospBedRat":
+                // AHealthExpHospBedRat.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+            case "AMethaneC02DisasterComp":
+                // AMethaneC02DisasterComp.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+
+            case "AMortRateSafeWaterComp":
+                // AMortRateSafeWaterComp.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+
+            case "ANetUsersElecAccessRat":
+                //ANetUsersElecAccessRat.getAnalysisObj(currCountry, start, end).getAnalyzedData();
+
+        }
+    }
+
+
+	public void addChart(ChartPanel chartPanel, ChartType ct) {
+        if(ct.BarChart) {
+            barPanel.removeAll();
+            barPanel.add(chartPanel);
+            validate();
+        }
+        if(ct.LineChart) {
+            linePanel.removeAll();
+            linePanel.add(chartPanel);
+            validate();
+        }
+        if(ct.PieChart) {
+            piePanel.removeAll();
+            piePanel.add(chartPanel);
+            validate();
+        }
+    }
+        
 }
+
 //        JLabel welcomeNote = new JLabel("Welcome to SWAV!"); //You can directly initialize
 //        welcomeNote.setIcon(image);
 //        welcomeNote.setHorizontalTextPosition(JLabel.CENTER);

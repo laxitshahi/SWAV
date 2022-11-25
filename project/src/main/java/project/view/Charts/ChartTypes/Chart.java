@@ -8,6 +8,7 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
 import project.view.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartType;
 import project.view.MainUI;
 import project.view.WelcomePage;
 
@@ -19,12 +20,12 @@ public abstract class Chart<K, V, T, E> extends JFrame {
 
     public abstract JFreeChart createChart(ChartProperties chartProperties, E dataset);
 
-    public void initUI(JFreeChart chart) {
+    public void initUI(JFreeChart chart, ChartType ct) {
         ChartPanel chartPanel = new ChartPanel(chart);
         chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
         chartPanel.setBackground(Color.white);
         
-        MainUI.getInstance().addChart(chartPanel);
+        MainUI.getInstance().addChart(chartPanel, ct);
         // pack();
         // validate();
         // setLocationRelativeTo(null);

@@ -9,13 +9,14 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
 import project.view.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartType;
 
 public class PieChart<K, V, T, E> extends Chart<K, V, T, E> {
 
     public PieChart(ChartProperties chartProperties, HashMap<K, HashMap<T, V>> data) {
         E dataset = this.createDataset(data, chartProperties.series);
         JFreeChart chart = this.createChart(chartProperties, dataset);
-        this.initUI(chart);
+        this.initUI(chart, new ChartType(false, false, true));
     }
 
     /**
