@@ -1,4 +1,4 @@
-package project.Charts.ChartCharacteristics;
+package project.view.Charts.ChartCharacteristics;
 
 import org.jfree.chart.plot.PlotOrientation;
 

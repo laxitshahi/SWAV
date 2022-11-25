@@ -1,20 +1,15 @@
-package project.Charts.ChartTypes;
+package project.view.Charts.ChartTypes;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import javax.swing.BorderFactory;
-
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-import project.Charts.ChartCharacteristics.ChartProperties;
-import javax.swing.JFrame;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
 
 public class BarChart<K, V, T, E> extends Chart<K, V, T, E> {
 

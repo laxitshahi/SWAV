@@ -1,4 +1,4 @@
-package project.Charts.ChartTypes;
+package project.view.Charts.ChartTypes;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-import project.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
 
 public class PieChart<K, V, T, E> extends Chart<K, V, T, E> {
 

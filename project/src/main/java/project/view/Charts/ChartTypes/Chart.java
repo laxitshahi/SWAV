@@ -1,4 +1,4 @@
-package project.Charts.ChartTypes;
+package project.view.Charts.ChartTypes;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 
-import project.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
 import project.view.WelcomePage;
 
 import javax.swing.BorderFactory;

@@ -1,14 +1,13 @@
-package project.Charts.ChartTests;
+package project.view.Charts.ChartTests;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 import org.jfree.chart.plot.PlotOrientation;
 
-import project.Charts.ChartMed;
-import project.Charts.ChartCharacteristics.ChartProperties;
-import project.Charts.ChartCharacteristics.ChartType;
+import project.view.Charts.ChartMed;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartType;
 
 public class ChartTest {
     public static void main(String[] args) {

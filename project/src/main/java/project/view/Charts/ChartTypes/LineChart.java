@@ -1,4 +1,4 @@
-package project.Charts.ChartTypes;
+package project.view.Charts.ChartTypes;
 
 import java.awt.BorderLayout;
 import java.util.ArrayList;
@@ -9,9 +9,8 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.data.xy.DefaultXYDataset;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
-import org.jfree.data.xy.XYSeriesCollection;
 
-import project.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
 
 public class LineChart<K, V, T, E> extends Chart<K, V, T, E> {
 

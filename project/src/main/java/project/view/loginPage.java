@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import com.sun.tools.javac.Main;
 import project.model.*;
 
 public class loginPage implements ActionListener {
@@ -105,22 +106,32 @@ public class loginPage implements ActionListener {
             registerNowButton.setFocusable(false);
         }
         if (e.getSource() == loginButton) {
+            // Change this once testing is done else login will work w/o auth
+            userField.setText("testing"); pwField.setText("testing");
+
             String name = userField.getText();
-            String password = pwField.getText();
+            String password = String.valueOf(pwField.getPassword());
+
+            //Add id/email login in later if time
             String id = idField.getText();
             String email = emailField.getText();
-
             msgLabel.setText("");
 
-            // TODO add id and email compatibility
+            /*
+             * @Note
+             * 2: User registered + correct credentials
+             * 1: User registered + incorrect credentials
+             * 0: User not registered
+             */
             if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 2) {
-                msgLabel.setText("login succesful");
+                msgLabel.setText("Login successful!");
                 frame.dispose();
-                WelcomePage wPage = WelcomePage.getInstance();
+//                WelcomePage wPage = WelcomePage.getInstance();
+                MainUI mainUI = MainUI.getInstance();
             } else if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 1) {
-                msgLabel.setText("either user or password incorrect");
+                msgLabel.setText("Please check your username and password.");
             } else if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 0) {
-                msgLabel.setText("you must register");
+                msgLabel.setText("You must register");
             }
         }
         if (e.getSource() == registerNowButton) {

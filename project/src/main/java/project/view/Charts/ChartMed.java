@@ -1,15 +1,13 @@
-package project.Charts;
+package project.view.Charts;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.jfree.data.category.CategoryDataset;
-
-import project.Charts.ChartCharacteristics.ChartProperties;
-import project.Charts.ChartCharacteristics.ChartType;
-import project.Charts.ChartTypes.BarChart;
-import project.Charts.ChartTypes.LineChart;
-import project.Charts.ChartTypes.PieChart;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartType;
+import project.view.Charts.ChartTypes.BarChart;
+import project.view.Charts.ChartTypes.LineChart;
+import project.view.Charts.ChartTypes.PieChart;
 
 public class ChartMed<K, V, T, E> {
     private ChartType chartType;

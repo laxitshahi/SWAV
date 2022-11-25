@@ -1,20 +1,19 @@
 package project.view;
+import project.view.Charts.ChartCharacteristics.ChartType;
+import project.view.Charts.ChartTests.ChartTest;
 
-import java.awt.Font;
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.sound.midi.MidiMessage;
+import javax.swing.*;
 
 import org.jfree.chart.ChartPanel;
 
-import project.Charts.ChartCharacteristics.ChartType;
-import project.Charts.ChartTests.ChartTest;
-
 public class WelcomePage extends JFrame implements ActionListener {
+	Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+
 	JLabel welcomeLabel = new JLabel();
 	private static WelcomePage welcomePage = new WelcomePage();
 
@@ -30,7 +29,7 @@ public class WelcomePage extends JFrame implements ActionListener {
 		add(welcomeLabel);
 		addButtons();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(600, 400);
+		setSize(dimension);
 		setLayout(new java.awt.BorderLayout());
 		setVisible(true);
 	}
