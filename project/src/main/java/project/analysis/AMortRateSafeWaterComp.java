@@ -9,12 +9,13 @@ public class AMortRateSafeWaterComp extends ComparisonAnalysisBase {
     static private AMortRateSafeWaterComp analysisObj = new AMortRateSafeWaterComp();
 
     static public AMortRateSafeWaterComp getAnalysisObj(String country, String startYear, String endYear) {
-        ComparisonAnalysisBase.country = country;
-        ComparisonAnalysisBase.dataSeries = new ArrayList<String>();
-        ComparisonAnalysisBase.dataSeries.add("mortalityunder5");
-        ComparisonAnalysisBase.dataSeries.add("usingwatermanaged");
-        ComparisonAnalysisBase.startYear = startYear;
-        ComparisonAnalysisBase.endYear = endYear;
+        AMortRateSafeWaterComp.country = country;
+        AMortRateSafeWaterComp.dataSeries = new ArrayList<String>();
+        AMortRateSafeWaterComp.title = "Mortality Rate vs People Using Safely Managed Drinking Water Serices";
+        AMortRateSafeWaterComp.dataSeries.add("mortalityunder5");
+        AMortRateSafeWaterComp.dataSeries.add("usingwatermanaged");
+        AMortRateSafeWaterComp.startYear = startYear;
+        AMortRateSafeWaterComp.endYear = endYear;
         return analysisObj;
     }
 }

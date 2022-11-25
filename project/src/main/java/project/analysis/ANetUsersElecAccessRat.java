@@ -7,11 +7,12 @@ public class ANetUsersElecAccessRat extends RatioAnalysisBase {
     static private ANetUsersElecAccessRat analysisObj = new ANetUsersElecAccessRat();
 
     static public ANetUsersElecAccessRat getAnalysisObj(String country, String startYear, String endYear) {
-        RatioAnalysisBase.country = country;
-        RatioAnalysisBase.numData = "indiviualsusinginternet";
-        RatioAnalysisBase.denomData = "accesstoelectricity";
-        RatioAnalysisBase.startYear = startYear;
-        RatioAnalysisBase.endYear = endYear;
+        ANetUsersElecAccessRat.country = country;
+        ANetUsersElecAccessRat.title = "Individuals Using The Internet vs Access to Electricity (Ratio)";
+        ANetUsersElecAccessRat.numData = "indiviualsusinginternet";
+        ANetUsersElecAccessRat.denomData = "accesstoelectricity";
+        ANetUsersElecAccessRat.startYear = startYear;
+        ANetUsersElecAccessRat.endYear = endYear;
         return analysisObj;
     }
 }

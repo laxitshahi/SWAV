@@ -6,6 +6,7 @@ import project.view.Charts.ChartMed;
 import project.view.Charts.ChartCharacteristics.ChartProperties;
 import project.view.Charts.ChartCharacteristics.ChartType;
 
+
 import org.jfree.chart.plot.PlotOrientation;
 
 import java.util.ArrayList;
@@ -24,14 +25,6 @@ public abstract class ComparisonAnalysisBase extends AnalysisBase<String, Intege
             result.put(outerKey, mappedData.get(outerKey));
         }
         return result;
-    }
-
-    public void startGen(ChartType chartType) {
-        HashMap<String, HashMap<Integer, Float>> data = getAnalyzedData();
-        ChartProperties chartProperties = new ChartProperties(data.keySet().size(), "AForestAgricultureAreaComp", "Year", "Area", PlotOrientation.VERTICAL, true, true, false);
-
-        var chartMed = new ChartMed<>(chartType, data, chartProperties);
-        chartMed.genCharts();
     }
 
     public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {

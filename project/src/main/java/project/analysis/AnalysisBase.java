@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import project.controller.Controller;
+import project.view.Charts.ChartCharacteristics.ChartProperties;
+import project.view.Charts.ChartCharacteristics.ChartType;
+import project.view.Charts.ChartMed;
 
 /**
  * The base class of all analysis types.
@@ -13,6 +16,7 @@ abstract public class AnalysisBase<K, T, V> {
     static protected String country;
     static protected String startYear;
     static protected String endYear;
+    static protected String title;
     /**
      * Stores the years for which analysis cannot be performed, loaded in at initialization time
      */
@@ -38,6 +42,14 @@ abstract public class AnalysisBase<K, T, V> {
         return result;
     }
 
+    public abstract HashMap<K, HashMap<T, V>> getAnalyzedData();
+    public void startGen(ChartType chartType) {
+        HashMap<K, HashMap<T, V>> data = getAnalyzedData();
+        ChartProperties chartProperties = new ChartProperties(data.keySet().size(), title, "Year", "Area", PlotOrientation.VERTICAL, true, true, false);
+
+        var chartMed = new ChartMed<>(chartType, data, chartProperties);
+        chartMed.genCharts();
+    }
 
     /**
      * @param c        The country whose data y
