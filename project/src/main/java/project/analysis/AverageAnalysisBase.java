@@ -24,9 +24,11 @@ public class AverageAnalysisBase extends AnalysisBase<String, String, Float> {
             if (pointCount != 0) {
                 sum /= pointCount;
                 average.put(dataSeries, sum);
+                average.put("Others", 100.f - sum);
             }
             else {
                 average.put(dataSeries, 0.f);
+                average.put("Others", 0.f);
             }
         }
         return result;

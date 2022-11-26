@@ -13,8 +13,8 @@ public class AHealthAccessMortRateComp extends ComparisonAnalysisBase {
         AHealthAccessMortRateComp.dataSeries = new ArrayList<String>();
         AHealthAccessMortRateComp.title = "Problems in Accessing Health Care vs Infant Mortality";
         AHealthAccessMortRateComp.yAxisTitle = "% of Women, Mort. Rate";
+        AHealthAccessMortRateComp.dataSeries.add("problemsaccessinghealthcare");
         AHealthAccessMortRateComp.dataSeries.add("mortalityinfant");
-        //AHealthAccessMortRateComp.dataSeries.add("mortalityinfant");
         AHealthAccessMortRateComp.startYear = startYear;
         AHealthAccessMortRateComp.endYear = endYear;
         return analysisObj;

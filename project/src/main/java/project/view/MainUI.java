@@ -26,8 +26,11 @@ public class MainUI extends JFrame implements ActionListener {
     //All Options
     String[] countries = {"-Select Country-", "GLOBAL", "USA", "CANADA", "BRAZIL", "GERMANY", "SPAIN", "FRANCE"};
 
-
-    String[] analysisType = {"-Selct Analysis-", "AC02GDPRat" , "AForestAgricultureAreaComp", "AForestAreaAvg", "AHealthAccessMortRateComp", "AHealthExpHospBedRat", "AMethaneC02DisasterComp", "AMortRateSafeWaterComp", "ANetUsersElecAccessRat"};
+    String[] analysisType = {"-Selct Analysis-", "C02 Emissions vs GDP Per Capita" ,
+            "Forest Area vs Agricultural Land", "Average Forest Area Usage", "Problems in Accessing Health Care vs Infant Mortality",
+            "Health Expenditure vs Hospital Beds (Ratio)", "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures",
+            "Mortality Rate vs People Using Safely Managed Drinking Water Services",
+            "Individuals Using The Internet vs Access to Electricity (Ratio)"};
     JComboBox<String> selectCountry = new JComboBox<>(countries);
     JComboBox<String> selectAnalysis = new JComboBox<>(analysisType);
     final static int CURRENT_YEAR = 2022;
@@ -243,28 +246,28 @@ public class MainUI extends JFrame implements ActionListener {
     public void getAnalysisObj(String currCountry, String currAnalysis, String start, String end, ChartType ct) {
         
         switch (currAnalysis) {
-            case "AC02GDPRat":
+            case "C02 Emissions vs GDP Per Capita":
                 AC02GDPRat.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
-            case "AForestAgricultureAreaComp":
+            case "Forest Area vs Agricultural Land":
                 AForestAgricultureAreaComp.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
-            case "AForestAreaAvg":
+            case "Average Forest Area Usage":
                 AForestAreaAvg.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
-            case "AHealthAccessMortRateComp":
+            case "Problems in Accessing Health Care vs Infant Mortality":
                 AHealthAccessMortRateComp.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
-            case "AHealthExpHospBedRat":
+            case "Health Expenditure vs Hospital Beds (Ratio)":
                 AHealthExpHospBedRat.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
-            case "AMethaneC02DisasterComp":
+            case "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures":
                 AMethaneC02DisasterComp.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
-            case "AMortRateSafeWaterComp":
+            case "Mortality Rate vs People Using Safely Managed Drinking Water Services":
                 AMortRateSafeWaterComp.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
-            case "ANetUsersElecAccessRat":
+            case "Individuals Using The Internet vs Access to Electricity (Ratio)":
                 ANetUsersElecAccessRat.getAnalysisObj(currCountry, start, end).startGen(ct);
                 break;
 

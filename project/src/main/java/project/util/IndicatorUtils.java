@@ -45,6 +45,8 @@ public class IndicatorUtils {
                 return "EN.CLC.MDAT.ZS";
             case "indiviualsusinginternet":
                 return "IT.NET.USER.ZS";
+            case "problemsaccessinghealthcare":
+                return "SH.ACS.PROB.Q1.ZS";
             case "accesstoelectricity":
                 return "EG.ELC.ACCS.ZS";
             default:

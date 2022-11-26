@@ -14,7 +14,7 @@ public class AForestAreaAvg extends AverageAnalysisBase {
         AForestAreaAvg.country = country;
         AForestAreaAvg.dataSeries = "forestarea";
         AForestAreaAvg.yAxisTitle = "Percent";
-        AForestAreaAvg.title = String.format("Land Usage, Average From %s to %s", startYear, endYear);
+        AForestAreaAvg.title = "Average Forest Area Usage";
         AForestAreaAvg.startYear = startYear;
         AForestAreaAvg.endYear = endYear;
         return analysisObj;
