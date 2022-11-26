@@ -5,7 +5,7 @@ import project.controller.APIController;
 import java.util.HashMap;
 
 
-public abstract class RatioAnalysisBase extends AnalysisBase {
+public abstract class RatioAnalysisBase extends AnalysisBase<String, Integer, Float> {
     static protected String numData;
     static protected String denomData;
 
