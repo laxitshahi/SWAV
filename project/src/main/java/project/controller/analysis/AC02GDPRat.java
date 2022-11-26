@@ -1,6 +1,4 @@
-package project.analysis;
-
-import java.util.HashMap;
+package project.controller.analysis;
 
 public class AC02GDPRat extends RatioAnalysisBase {
     private AC02GDPRat(){};

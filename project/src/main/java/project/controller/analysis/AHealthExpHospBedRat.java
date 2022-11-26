@@ -1,9 +1,4 @@
-package project.analysis;
-
-import project.controller.Controller;
-import project.util.IndicatorUtils;
-
-import java.util.HashMap;
+package project.controller.analysis;
 
 public class AHealthExpHospBedRat extends RatioAnalysisBase {
 
@@ -12,9 +7,9 @@ public class AHealthExpHospBedRat extends RatioAnalysisBase {
 
     static public AHealthExpHospBedRat getAnalysisObj(String country, String startYear, String endYear) {
         AHealthExpHospBedRat.country = country;
-        AHealthExpHospBedRat.title = "Health Expenditure vs Hospital Beds (Ratio)";
-        AHealthExpHospBedRat.numData = "healthexpenditure";
-        AHealthExpHospBedRat.denomData = "hospitalbeds";
+        title = "Health Expenditure vs Hospital Beds (Ratio)";
+        numData = "healthexpenditure";
+        denomData = "hospitalbeds";
         AHealthExpHospBedRat.startYear = startYear;
         AHealthExpHospBedRat.endYear = endYear;
         return analysisObj;

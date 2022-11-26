@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static project.controller.Controller.*;
+import static project.controller.APIController.*;
 
-class ControllerTest {
+class APIControllerTest {
 
     @Test
     void yearlyData() {

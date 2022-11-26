@@ -1,14 +1,12 @@
-package project.analysis;
+package project.controller.analysis;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.jfree.chart.plot.PlotOrientation;
-import project.controller.Controller;
 import project.view.Charts.ChartCharacteristics.ChartProperties;
 import project.view.Charts.ChartCharacteristics.ChartType;
 import project.view.Charts.ChartMed;
-import org.jfree.chart.plot.PlotOrientation;
 
 /**
  * The base class of all analysis types.

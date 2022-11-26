@@ -7,7 +7,7 @@ import com.google.gson.JsonElement;
 
 import static project.util.FilterData.filterDataAsFloat;
 
-public class Controller {
+public class APIController {
 
 
     public static HashMap<String, HashMap<Integer, Float>> getFilteredData(String aCountry, String dataType, String startYear, String endYear) {

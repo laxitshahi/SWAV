@@ -1,5 +1,8 @@
 package project;
 
+/**
+ * @TEST
+ */
 public class TestClass  {
 	public String name;
 	public Integer number;

@@ -1,6 +1,6 @@
-package project.analysis;
+package project.controller.analysis;
 
-import project.controller.Controller;
+import project.controller.APIController;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,7 +34,7 @@ public class AverageAnalysisBase extends AnalysisBase<String, String, Float> {
     // Adjusts for compatibility with the chart classes
     public HashMap<String, HashMap<String, Float>> getAnalyzedData() {
         HashMap<String, Float> result = new HashMap<>();
-        HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(country, dataSeries, startYear, endYear);
+        HashMap<String, HashMap<Integer, Float>> cData1 = APIController.getFilteredData(country, dataSeries, startYear, endYear);
         return getAnalyzedDataHelper(cData1);
     }
 }

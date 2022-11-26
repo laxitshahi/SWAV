@@ -1,7 +1,6 @@
-package project.analysis;
+package project.controller.analysis;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 // Simply fetch data and add to hashmap.
 public class AForestAgricultureAreaComp extends ComparisonAnalysisBase {
@@ -10,10 +9,10 @@ public class AForestAgricultureAreaComp extends ComparisonAnalysisBase {
 
     static public AForestAgricultureAreaComp getAnalysisObj(String country, String startYear, String endYear) {
         AForestAgricultureAreaComp.country = country;
-        AForestAgricultureAreaComp.dataSeries = new ArrayList<String>();
-        AForestAgricultureAreaComp.title = "Forest Area vs Agricultural Land";
-        AForestAgricultureAreaComp.dataSeries.add("forestarea");
-        AForestAgricultureAreaComp.dataSeries.add("agriculturalland");
+        dataSeries = new ArrayList<String>();
+        title = "Forest Area vs Agricultural Land";
+        dataSeries.add("forestarea");
+        dataSeries.add("agriculturalland");
         AForestAgricultureAreaComp.startYear = startYear;
         AForestAgricultureAreaComp.endYear = endYear;
         return analysisObj;

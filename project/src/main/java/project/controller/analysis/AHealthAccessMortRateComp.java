@@ -1,7 +1,6 @@
-package project.analysis;
+package project.controller.analysis;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 // Simply fetch data and add to hashmap.
 public class AHealthAccessMortRateComp extends ComparisonAnalysisBase {

@@ -1,6 +1,4 @@
-package project.analysis;
-
-import java.util.HashMap;
+package project.controller.analysis;
 
 public class ANetUsersElecAccessRat extends RatioAnalysisBase {
     private ANetUsersElecAccessRat(){};
@@ -8,9 +6,9 @@ public class ANetUsersElecAccessRat extends RatioAnalysisBase {
 
     static public ANetUsersElecAccessRat getAnalysisObj(String country, String startYear, String endYear) {
         ANetUsersElecAccessRat.country = country;
-        ANetUsersElecAccessRat.title = "Individuals Using The Internet vs Access to Electricity (Ratio)";
-        ANetUsersElecAccessRat.numData = "indiviualsusinginternet";
-        ANetUsersElecAccessRat.denomData = "accesstoelectricity";
+        title = "Individuals Using The Internet vs Access to Electricity (Ratio)";
+        numData = "indiviualsusinginternet";
+        denomData = "accesstoelectricity";
         ANetUsersElecAccessRat.startYear = startYear;
         ANetUsersElecAccessRat.endYear = endYear;
         return analysisObj;

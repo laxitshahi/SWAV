@@ -1,6 +1,6 @@
-package project.analysis;
+package project.controller.analysis;
 
-import project.controller.Controller;
+import project.controller.APIController;
 
 import java.util.HashMap;
 
@@ -35,8 +35,8 @@ public abstract class RatioAnalysisBase extends AnalysisBase {
      * @return The processed data for this analysis type
      **/
     public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {
-        HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(country, numData, startYear, endYear);
-        HashMap<String, HashMap<Integer, Float>> cData2 = Controller.getFilteredData(country, denomData, startYear, endYear);
+        HashMap<String, HashMap<Integer, Float>> cData1 = APIController.getFilteredData(country, numData, startYear, endYear);
+        HashMap<String, HashMap<Integer, Float>> cData2 = APIController.getFilteredData(country, denomData, startYear, endYear);
         return getAnalyzedDataHelper(cData1, cData2);
     }
 }

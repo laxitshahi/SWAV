@@ -3,31 +3,31 @@ package project.view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
+import java.util.*;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 
 import org.jfree.chart.ChartPanel;
 
-import project.analysis.*;
+import project.controller.analysis.*;
+//import project.controller.analysis.*;
 import project.view.Charts.ChartCharacteristics.ChartType;
-
+import project.util.CountryCodes;
 
 public class MainUI extends JFrame implements ActionListener {
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
     private static final MainUI mainUI = new MainUI();
-    private JPanel barPanel = new JPanel();
-    private JPanel piePanel = new JPanel();
-    private JPanel linePanel = new JPanel();
+
+    private final JPanel linePanel;{new JPanel();}
+    private final JPanel piePanel;{new JPanel();}
+    private final JPanel barPanel;{new JPanel();}
 
     //All Options
-    String[] countries = {"-Select Country-", "GLOBAL", "USA", "CANADA", "BRAZIL", "GERMANY", "SPAIN", "FRANCE"};
+    CountryCodes cCodes = new CountryCodes();
 
-
-    String[] analysisType = {"-Selct Analysis-", "AC02GDPRat" , "AForestAgricultureAreaComp", "AForestAreaAvg", "AHealthAccessMortRateComp", "AHealthExpHospBedRat", "AMethaneC02DisasterComp", "AMortRateSafeWaterComp", "ANetUsersElecAccessRat"};
+    String[] countries = cCodes.getCountryArray();
+    String[] analysisType = {"AC02GDPRat" , "AForestAgricultureAreaComp", "AForestAreaAvg", "AHealthAccessMortRateComp", "AHealthExpHospBedRat", "AMethaneC02DisasterComp", "AMortRateSafeWaterComp", "ANetUsersElecAccessRat"};
     JComboBox<String> selectCountry = new JComboBox<>(countries);
     JComboBox<String> selectAnalysis = new JComboBox<>(analysisType);
     final static int CURRENT_YEAR = 2022;
@@ -45,12 +45,13 @@ public class MainUI extends JFrame implements ActionListener {
 
     private MainUI() {
         //Add Years to Start and End Years
-        startYear.addItem("-Select Year-");
-        endYear.addItem("-Select Year-");
+
         for (Integer year = 1980; year <= CURRENT_YEAR; ++year) {
             startYear.addItem(String.valueOf(year));
             endYear.addItem(String.valueOf(year));
         }
+
+
 
         //Frame settings
         ImageIcon image = new ImageIcon("./project/src/main/resources/swav.png");
@@ -227,8 +228,8 @@ public class MainUI extends JFrame implements ActionListener {
         if(e.getSource() == reset){
             selectCountry.setSelectedItem(countries[0]);
             selectAnalysis.setSelectedItem(analysisType[0]);
-            startYear.setSelectedItem("-Select Year-");
-            endYear.setSelectedItem("-Select Year-");
+            startYear.setSelectedItem("2000");
+            endYear.setSelectedItem("2020");
             piRadio.setSelected(false);
             barRadio.setSelected(false);
             lineRadio.setSelected(false);
@@ -241,7 +242,8 @@ public class MainUI extends JFrame implements ActionListener {
     }
 
     public void getAnalysisObj(String currCountry, String currAnalysis, String start, String end, ChartType ct) {
-        
+        //GET CODE
+        currCountry = cCodes.getCode(currCountry);
         switch (currAnalysis) {
             case "AC02GDPRat":
                 AC02GDPRat.getAnalysisObj(currCountry, start, end).startGen(ct);

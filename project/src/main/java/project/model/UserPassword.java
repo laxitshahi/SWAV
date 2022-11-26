@@ -1,14 +1,12 @@
 package project.model;
 
-import project.controller.MaintainUser;
-
 import java.util.ArrayList;
 
-public class userPassword {
+public class UserPassword {
     private MaintainUser maintainUser = new MaintainUser();
     private ArrayList<User> users;
 
-    public userPassword() throws Exception {
+    public UserPassword() throws Exception {
         this.users = this.maintainUser.load();
     }
 
