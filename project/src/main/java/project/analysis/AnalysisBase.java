@@ -9,6 +9,7 @@ import project.view.Charts.ChartCharacteristics.ChartProperties;
 import project.view.Charts.ChartCharacteristics.ChartType;
 import project.view.Charts.ChartMed;
 import org.jfree.chart.plot.PlotOrientation;
+import project.view.Invalid.InvalidOption;
 
 /**
  * The base class of all analysis types.
@@ -52,6 +53,15 @@ abstract public class AnalysisBase<K, T, V> {
         HashMap<K, HashMap<T, V>> data = getAnalyzedData();
         ChartProperties chartProperties = new ChartProperties(data.keySet().size(), title, "Year", yAxisTitle, PlotOrientation.VERTICAL, true, true, false);
 
+        if (chartTypeIn.BarChart && !chartType.BarChart){
+            new InvalidOption("Bar Charts Are Invalid For This Configuration");
+        }
+        if (chartTypeIn.LineChart && !chartType.LineChart){
+            new InvalidOption("Line Charts Are Invalid For This Configuration");
+        }
+        if (chartTypeIn.PieChart && !chartType.PieChart){
+            new InvalidOption("Pie Charts Are Invalid For This Configuration");
+        }
         // Mask out non-allowed types
         chartTypeIn.BarChart = chartType.BarChart && chartTypeIn.BarChart;
         chartTypeIn.LineChart = chartType.LineChart && chartTypeIn.LineChart;

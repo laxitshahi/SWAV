@@ -8,15 +8,15 @@ public class InvalidOption extends JFrame {
 
 
     public InvalidOption(String message) {
+       // setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         invalidLabel = new JLabel(message, SwingConstants.CENTER);
 
-        invalidLabel.setBounds(0, 0, 200, 25);
+        invalidLabel.setBounds(0, 0, 600, 50);
         invalidLabel.setFont(new Font(null, Font.BOLD, 20));
-        invalidLabel.setForeground(Color.RED);
+        invalidLabel.setForeground(Color.BLACK);
         add(invalidLabel);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(200, 100);
+		setSize(600, 100);
 		setLayout(new java.awt.BorderLayout());
 		setVisible(true);
     }
