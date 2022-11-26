@@ -1,5 +1,5 @@
 package project.analysis;
-
+/*
 import org.junit.Test;
 import org.junit.Assert;
 
@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AnalysisTest {
-    /*
-    * Tests the ratio analysis class for correctness
-    * */
+    
     @Test
     public void test_ratio_analysis() {
         HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
@@ -36,9 +34,6 @@ public class AnalysisTest {
 
     }
 
-    /*
-     * Tests the comparison analysis class for correctness
-     * */
     @Test
     public void test_comparison_analysis() {
         ArrayList<HashMap<String, HashMap<Integer, Float>>> allCountryData = new ArrayList<HashMap<String, HashMap<Integer, Float>>>();
@@ -97,3 +92,4 @@ public class AnalysisTest {
 
     }
 }
+*/

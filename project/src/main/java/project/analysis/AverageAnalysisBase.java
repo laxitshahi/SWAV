@@ -24,18 +24,19 @@ public class AverageAnalysisBase extends AnalysisBase<String, String, Float> {
             if (pointCount != 0) {
                 sum /= pointCount;
                 average.put(dataSeries, sum);
+                average.put("Others", 100.f - sum);
             }
             else {
                 average.put(dataSeries, 0.f);
+                average.put("Others", 0.f);
             }
         }
         return result;
     }
-
     // Adjusts for compatibility with the chart classes
-    public HashMap<String, ArrayList<HashMap<String, Float>>> getAnalyzedData() {
+    public HashMap<String, HashMap<String, Float>> getAnalyzedData() {
         HashMap<String, Float> result = new HashMap<>();
         HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(country, dataSeries, startYear, endYear);
-        return convertToGraphFormat(getAnalyzedDataHelper(cData1));
+        return getAnalyzedDataHelper(cData1);
     }
 }

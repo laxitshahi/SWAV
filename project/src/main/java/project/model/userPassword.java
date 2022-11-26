@@ -3,7 +3,6 @@ package project.model;
 import project.controller.MaintainUser;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class userPassword {
     private MaintainUser maintainUser = new MaintainUser();

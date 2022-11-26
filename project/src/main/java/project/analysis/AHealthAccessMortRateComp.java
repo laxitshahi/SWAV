@@ -9,12 +9,14 @@ public class AHealthAccessMortRateComp extends ComparisonAnalysisBase {
     static private AHealthAccessMortRateComp analysisObj = new AHealthAccessMortRateComp();
 
     static public AHealthAccessMortRateComp getAnalysisObj(String country, String startYear, String endYear) {
-        ComparisonAnalysisBase.country = country;
-        ComparisonAnalysisBase.dataSeries = new ArrayList<String>();
-        ComparisonAnalysisBase.dataSeries.add("mortalityinfant");
-        //ComparisonAnalysisBase.dataSeries.add("mortalityinfant");
-        ComparisonAnalysisBase.startYear = startYear;
-        ComparisonAnalysisBase.endYear = endYear;
+        AHealthAccessMortRateComp.country = country;
+        AHealthAccessMortRateComp.dataSeries = new ArrayList<String>();
+        AHealthAccessMortRateComp.title = "Problems in Accessing Health Care vs Infant Mortality";
+        AHealthAccessMortRateComp.yAxisTitle = "% of Women, Mort. Rate";
+        AHealthAccessMortRateComp.dataSeries.add("problemsaccessinghealthcare");
+        AHealthAccessMortRateComp.dataSeries.add("mortalityinfant");
+        AHealthAccessMortRateComp.startYear = startYear;
+        AHealthAccessMortRateComp.endYear = endYear;
         return analysisObj;
     }
 }

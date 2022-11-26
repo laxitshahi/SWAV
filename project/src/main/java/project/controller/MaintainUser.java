@@ -30,8 +30,10 @@ public class MaintainUser {
         reader.readNext();
         while (reader.peek() != null) {
             line = reader.readNext();
-            User user = new User(line[0], Integer.parseInt(line[1]), line[2], line[3]);
-            users.add(user);
+            if(line.length != 0) {
+                User user = new User(line[0], Integer.parseInt(line[1]), line[2], line[3]);
+                users.add(user);
+            }
         }
         reader.close();
         return users;

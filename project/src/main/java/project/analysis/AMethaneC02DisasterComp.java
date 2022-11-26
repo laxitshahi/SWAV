@@ -9,13 +9,15 @@ public class AMethaneC02DisasterComp extends ComparisonAnalysisBase {
     static private AMethaneC02DisasterComp analysisObj = new AMethaneC02DisasterComp();
 
     static public AMethaneC02DisasterComp getAnalysisObj(String country, String startYear, String endYear) {
-        ComparisonAnalysisBase.country = country;
-        ComparisonAnalysisBase.dataSeries = new ArrayList<String>();
-        ComparisonAnalysisBase.dataSeries.add("methaneemissions");
-        ComparisonAnalysisBase.dataSeries.add("co2emissions");
-        ComparisonAnalysisBase.dataSeries.add("droughtsfloodsextremetemps");
-        ComparisonAnalysisBase.startYear = startYear;
-        ComparisonAnalysisBase.endYear = endYear;
+        AMethaneC02DisasterComp.country = country;
+        AMethaneC02DisasterComp.dataSeries = new ArrayList<String>();
+        AMethaneC02DisasterComp.title = "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures";
+        AMortRateSafeWaterComp.yAxisTitle = "Tons Per Cap, % of Pop";
+        AMethaneC02DisasterComp.dataSeries.add("methaneemissions");
+        AMethaneC02DisasterComp.dataSeries.add("co2emissions");
+        AMethaneC02DisasterComp.dataSeries.add("droughtsfloodsextremetemps");
+        AMethaneC02DisasterComp.startYear = startYear;
+        AMethaneC02DisasterComp.endYear = endYear;
         return analysisObj;
     }
 }
