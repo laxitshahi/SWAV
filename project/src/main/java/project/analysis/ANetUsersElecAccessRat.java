@@ -1,5 +1,7 @@
 package project.analysis;
 
+import project.view.Charts.ChartCharacteristics.ChartType;
+
 import java.util.HashMap;
 
 public class ANetUsersElecAccessRat extends RatioAnalysisBase {
@@ -9,6 +11,7 @@ public class ANetUsersElecAccessRat extends RatioAnalysisBase {
     static public ANetUsersElecAccessRat getAnalysisObj(String country, String startYear, String endYear) {
         ANetUsersElecAccessRat.country = country;
         ANetUsersElecAccessRat.title = "Individuals Using The Internet vs Access to Electricity (Ratio)";
+        ANetUsersElecAccessRat.chartType = new ChartType(true, true, false);
         ANetUsersElecAccessRat.numData = "indiviualsusinginternet";
         ANetUsersElecAccessRat.denomData = "accesstoelectricity";
         ANetUsersElecAccessRat.yAxisTitle = "Net Users Per Electricity User";

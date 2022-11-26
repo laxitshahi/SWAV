@@ -2,6 +2,7 @@ package project.analysis;
 
 import project.controller.Controller;
 import project.util.IndicatorUtils;
+import project.view.Charts.ChartCharacteristics.ChartType;
 
 import java.util.HashMap;
 
@@ -12,6 +13,7 @@ public class AHealthExpHospBedRat extends RatioAnalysisBase {
 
     static public AHealthExpHospBedRat getAnalysisObj(String country, String startYear, String endYear) {
         AHealthExpHospBedRat.country = country;
+        AHealthExpHospBedRat.chartType = new ChartType(true, true, false);
         AHealthExpHospBedRat.title = "Health Expenditure vs Hospital Beds (Ratio)";
         AHealthExpHospBedRat.yAxisTitle = "$ Per Bed";
         AHealthExpHospBedRat.numData = "healthexpenditure";

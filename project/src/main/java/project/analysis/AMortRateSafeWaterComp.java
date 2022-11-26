@@ -1,5 +1,7 @@
 package project.analysis;
 
+import project.view.Charts.ChartCharacteristics.ChartType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,6 +12,7 @@ public class AMortRateSafeWaterComp extends ComparisonAnalysisBase {
 
     static public AMortRateSafeWaterComp getAnalysisObj(String country, String startYear, String endYear) {
         AMortRateSafeWaterComp.country = country;
+        AMortRateSafeWaterComp.chartType = new ChartType(true, true, false);
         AMortRateSafeWaterComp.dataSeries = new ArrayList<String>();
         AMortRateSafeWaterComp.yAxisTitle = "% of Pop., Mort. Rate";
         AMortRateSafeWaterComp.title = "Mortality Rate vs People Using Safely Managed Drinking Water Services";

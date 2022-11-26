@@ -25,32 +25,39 @@ abstract public class AnalysisBase<K, T, V> {
      */
     protected ArrayList<Integer> invalidYears = new ArrayList<Integer>();
 
-    /**
-     * Stores the string representation of the valid possible viewers for the analysis type, specified at
-     * initialization time.
-     */
-    protected ArrayList<String> validViewers = new ArrayList<String>();
-
-//    protected HashMap<K, ArrayList<HashMap<T, V>>> convertToGraphFormat(HashMap<K, HashMap<T, V>> preData) {
-//        HashMap<K, ArrayList<HashMap<T, V>>> result = new HashMap<K, ArrayList<HashMap<T, V>>>();
-//        for (K outerKey : preData.keySet()) {
-//            ArrayList<HashMap<T, V>> innerList = new ArrayList<>();
-//            result.put(outerKey, innerList);
-//            for (T innerKey : preData.get(outerKey).keySet()) {
-//                HashMap<T, V> innerMap = new HashMap<T, V>();
-//                innerMap.put(innerKey, preData.get(outerKey).get(innerKey));
-//                innerList.add(innerMap);
-//            }
-//        }
-//        return result;
-//    }
+    static protected ChartType chartType;
 
     public abstract HashMap<K, HashMap<T, V>> getAnalyzedData();
-    public void startGen(ChartType chartType) {
+
+    public String countryToAcronym(String country) {
+        switch(country) {
+            case "CANADA":
+                return "CAN";
+            case "USA":
+                return "USA";
+            case "BRAZIL":
+                return "BRA";
+            case "GERMANY":
+                return "DE";
+            case "SPAIN":
+                return "ES";
+            case "FRANCE":
+                return "FR";
+            default:
+                return country;
+        }
+    }
+
+    public void startGen(ChartType chartTypeIn) {
         HashMap<K, HashMap<T, V>> data = getAnalyzedData();
         ChartProperties chartProperties = new ChartProperties(data.keySet().size(), title, "Year", yAxisTitle, PlotOrientation.VERTICAL, true, true, false);
 
-        var chartMed = new ChartMed<>(chartType, data, chartProperties);
+        // Mask out non-allowed types
+        chartTypeIn.BarChart = chartType.BarChart && chartTypeIn.BarChart;
+        chartTypeIn.LineChart = chartType.LineChart && chartTypeIn.LineChart;
+        chartTypeIn.PieChart = chartType.PieChart && chartTypeIn.PieChart;
+
+        var chartMed = new ChartMed<>(chartTypeIn, data, chartProperties);
         chartMed.genCharts();
     }
 

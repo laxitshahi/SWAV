@@ -1,5 +1,7 @@
 package project.analysis;
 
+import project.view.Charts.ChartCharacteristics.ChartType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,6 +12,7 @@ public class AHealthAccessMortRateComp extends ComparisonAnalysisBase {
 
     static public AHealthAccessMortRateComp getAnalysisObj(String country, String startYear, String endYear) {
         AHealthAccessMortRateComp.country = country;
+        AHealthAccessMortRateComp.chartType = new ChartType(true, true, false);
         AHealthAccessMortRateComp.dataSeries = new ArrayList<String>();
         AHealthAccessMortRateComp.title = "Problems in Accessing Health Care vs Infant Mortality";
         AHealthAccessMortRateComp.yAxisTitle = "% of Women, Mort. Rate";

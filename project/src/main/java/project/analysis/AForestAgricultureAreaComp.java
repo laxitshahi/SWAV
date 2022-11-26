@@ -1,5 +1,7 @@
 package project.analysis;
 
+import project.view.Charts.ChartCharacteristics.ChartType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,6 +13,7 @@ public class AForestAgricultureAreaComp extends ComparisonAnalysisBase {
     static public AForestAgricultureAreaComp getAnalysisObj(String country, String startYear, String endYear) {
         AForestAgricultureAreaComp.country = country;
         AForestAgricultureAreaComp.dataSeries = new ArrayList<String>();
+        AForestAgricultureAreaComp.chartType = new ChartType(true, true, false);
         AForestAgricultureAreaComp.title = "Forest Area vs Agricultural Land";
         AForestAgricultureAreaComp.yAxisTitle = "% Area";
         AForestAgricultureAreaComp.dataSeries.add("forestarea");

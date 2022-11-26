@@ -1,5 +1,7 @@
 package project.analysis;
 
+import project.view.Charts.ChartCharacteristics.ChartType;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -11,6 +13,7 @@ public class AMethaneC02DisasterComp extends ComparisonAnalysisBase {
     static public AMethaneC02DisasterComp getAnalysisObj(String country, String startYear, String endYear) {
         AMethaneC02DisasterComp.country = country;
         AMethaneC02DisasterComp.dataSeries = new ArrayList<String>();
+        AMethaneC02DisasterComp.chartType = new ChartType(true, true, false);
         AMethaneC02DisasterComp.title = "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures";
         AMortRateSafeWaterComp.yAxisTitle = "Tons Per Cap, % of Pop";
         AMethaneC02DisasterComp.dataSeries.add("methaneemissions");

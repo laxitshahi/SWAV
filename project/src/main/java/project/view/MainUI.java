@@ -165,7 +165,7 @@ public class MainUI extends JFrame implements ActionListener {
         /*
          * @Submit and Reset Buttons
          */
-        submit.setText("SUMBIT");
+        submit.setText("SUBMIT");
         leftPanel.add(submit);
         submit.addActionListener(this);
 
