@@ -11,7 +11,8 @@ public class AMortRateSafeWaterComp extends ComparisonAnalysisBase {
     static public AMortRateSafeWaterComp getAnalysisObj(String country, String startYear, String endYear) {
         AMortRateSafeWaterComp.country = country;
         AMortRateSafeWaterComp.dataSeries = new ArrayList<String>();
-        AMortRateSafeWaterComp.title = "Mortality Rate vs People Using Safely Managed Drinking Water Serices";
+        AMortRateSafeWaterComp.yAxisTitle = "% of Pop., Mort. Rate";
+        AMortRateSafeWaterComp.title = "Mortality Rate vs People Using Safely Managed Drinking Water Services";
         AMortRateSafeWaterComp.dataSeries.add("mortalityunder5");
         AMortRateSafeWaterComp.dataSeries.add("usingwatermanaged");
         AMortRateSafeWaterComp.startYear = startYear;

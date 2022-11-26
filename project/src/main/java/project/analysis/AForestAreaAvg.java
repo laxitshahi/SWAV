@@ -13,6 +13,7 @@ public class AForestAreaAvg extends AverageAnalysisBase {
     static public AForestAreaAvg getAnalysisObj(String country, String startYear, String endYear) {
         AForestAreaAvg.country = country;
         AForestAreaAvg.dataSeries = "forestarea";
+        AForestAreaAvg.yAxisTitle = "Percent";
         AForestAreaAvg.title = String.format("Land Usage, Average From %s to %s", startYear, endYear);
         AForestAreaAvg.startYear = startYear;
         AForestAreaAvg.endYear = endYear;

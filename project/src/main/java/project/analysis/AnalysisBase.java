@@ -19,6 +19,7 @@ abstract public class AnalysisBase<K, T, V> {
     static protected String startYear;
     static protected String endYear;
     static protected String title;
+    static protected String yAxisTitle;
     /**
      * Stores the years for which analysis cannot be performed, loaded in at initialization time
      */
@@ -30,24 +31,24 @@ abstract public class AnalysisBase<K, T, V> {
      */
     protected ArrayList<String> validViewers = new ArrayList<String>();
 
-    protected HashMap<K, ArrayList<HashMap<T, V>>> convertToGraphFormat(HashMap<K, HashMap<T, V>> preData) {
-        HashMap<K, ArrayList<HashMap<T, V>>> result = new HashMap<K, ArrayList<HashMap<T, V>>>();
-        for (K outerKey : preData.keySet()) {
-            ArrayList<HashMap<T, V>> innerList = new ArrayList<>();
-            result.put(outerKey, innerList);
-            for (T innerKey : preData.get(outerKey).keySet()) {
-                HashMap<T, V> innerMap = new HashMap<T, V>();
-                innerMap.put(innerKey, preData.get(outerKey).get(innerKey));
-                innerList.add(innerMap);
-            }
-        }
-        return result;
-    }
+//    protected HashMap<K, ArrayList<HashMap<T, V>>> convertToGraphFormat(HashMap<K, HashMap<T, V>> preData) {
+//        HashMap<K, ArrayList<HashMap<T, V>>> result = new HashMap<K, ArrayList<HashMap<T, V>>>();
+//        for (K outerKey : preData.keySet()) {
+//            ArrayList<HashMap<T, V>> innerList = new ArrayList<>();
+//            result.put(outerKey, innerList);
+//            for (T innerKey : preData.get(outerKey).keySet()) {
+//                HashMap<T, V> innerMap = new HashMap<T, V>();
+//                innerMap.put(innerKey, preData.get(outerKey).get(innerKey));
+//                innerList.add(innerMap);
+//            }
+//        }
+//        return result;
+//    }
 
     public abstract HashMap<K, HashMap<T, V>> getAnalyzedData();
     public void startGen(ChartType chartType) {
         HashMap<K, HashMap<T, V>> data = getAnalyzedData();
-        ChartProperties chartProperties = new ChartProperties(data.keySet().size(), title, "Year", "Area", PlotOrientation.VERTICAL, true, true, false);
+        ChartProperties chartProperties = new ChartProperties(data.keySet().size(), title, "Year", yAxisTitle, PlotOrientation.VERTICAL, true, true, false);
 
         var chartMed = new ChartMed<>(chartType, data, chartProperties);
         chartMed.genCharts();

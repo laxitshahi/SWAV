@@ -12,6 +12,7 @@ public class AMethaneC02DisasterComp extends ComparisonAnalysisBase {
         AMethaneC02DisasterComp.country = country;
         AMethaneC02DisasterComp.dataSeries = new ArrayList<String>();
         AMethaneC02DisasterComp.title = "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures";
+        AMortRateSafeWaterComp.yAxisTitle = "Tons Per Cap, % of Pop";
         AMethaneC02DisasterComp.dataSeries.add("methaneemissions");
         AMethaneC02DisasterComp.dataSeries.add("co2emissions");
         AMethaneC02DisasterComp.dataSeries.add("droughtsfloodsextremetemps");

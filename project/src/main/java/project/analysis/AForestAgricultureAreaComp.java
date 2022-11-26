@@ -12,6 +12,7 @@ public class AForestAgricultureAreaComp extends ComparisonAnalysisBase {
         AForestAgricultureAreaComp.country = country;
         AForestAgricultureAreaComp.dataSeries = new ArrayList<String>();
         AForestAgricultureAreaComp.title = "Forest Area vs Agricultural Land";
+        AForestAgricultureAreaComp.yAxisTitle = "% Area";
         AForestAgricultureAreaComp.dataSeries.add("forestarea");
         AForestAgricultureAreaComp.dataSeries.add("agriculturalland");
         AForestAgricultureAreaComp.startYear = startYear;
