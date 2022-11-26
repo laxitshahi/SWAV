@@ -74,7 +74,7 @@ public class MainUI extends JFrame implements ActionListener {
          */
         barPanel = new JPanel();
         barPanel.setBackground(Color.WHITE);
-        barPanel.setBounds(400,0, 700, (dimension.height/3) + 50);
+        barPanel.setBounds(400,0, 700, (dimension.height/3) + 75);
         barPanel.setLayout(new GridLayout(2,3));
         barPanel.setBorder(border);
         add(barPanel);
@@ -84,7 +84,7 @@ public class MainUI extends JFrame implements ActionListener {
          */
         piePanel = new JPanel();
         piePanel.setBackground(Color.WHITE);
-        piePanel.setBounds(900,0, 700, (dimension.height/3) + 50);
+        piePanel.setBounds(900,0, 700, (dimension.height/3) + 75);
         piePanel.setLayout(new GridLayout(2,3));
         piePanel.setBorder(border);
         add(piePanel);
@@ -94,7 +94,7 @@ public class MainUI extends JFrame implements ActionListener {
          */
         linePanel = new JPanel();
         linePanel.setBackground(Color.WHITE);
-        linePanel.setBounds(600, 600, 700, (dimension.height/3) + 50);
+        linePanel.setBounds(600, 600, 700, (dimension.height/3) + 75);
         linePanel.setLayout(new GridLayout(2,3));
         linePanel.setBorder(border);
         add(linePanel);

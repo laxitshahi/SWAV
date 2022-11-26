@@ -22,7 +22,7 @@ public abstract class Chart<K, V, T, E> extends JFrame {
 
     public void initUI(JFreeChart chart, ChartType ct) {
         ChartPanel chartPanel = new ChartPanel(chart);
-        chartPanel.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        chartPanel.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
         chartPanel.setBackground(Color.white);
         
         MainUI.getInstance().addChart(chartPanel, ct);
