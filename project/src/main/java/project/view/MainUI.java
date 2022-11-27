@@ -56,8 +56,7 @@ public class MainUI extends JFrame implements ActionListener {
         }
 
         //Frame settings
-        ImageIcon image = new ImageIcon("./project/src/main/resources/swav.png");
-        Border border = BorderFactory.createLineBorder(Color.black,3);
+        Border leftPanelBorder = BorderFactory.createLineBorder(Color.black,3);
         Border chartBorder = BorderFactory.createLineBorder(Color.black,1);
         /*
          * Left Panel Container
@@ -66,7 +65,7 @@ public class MainUI extends JFrame implements ActionListener {
         leftPanel.setBackground(new Color(0x1D1D77));
         leftPanel.setBounds(0,0,400,dimension.height);
         leftPanel.setLayout(new GridLayout(10,4));
-        leftPanel.setBorder(border);
+        leftPanel.setBorder(leftPanelBorder);
         add(leftPanel);
 
         /*
@@ -165,14 +164,17 @@ public class MainUI extends JFrame implements ActionListener {
         /*
          * @Submit and Reset Buttons
          */
+        //Submit
         submit.setText("SUBMIT");
         leftPanel.add(submit);
         submit.addActionListener(this);
 
+        //Reset
         reset.setText("RESET");
         leftPanel.add(reset);
         reset.addActionListener(this);
 
+        //Settings for JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null); //absolute positioning
         setSize(dimension);
