@@ -1,4 +1,4 @@
-package project.analysis;
+package project.controller.analysis;
 
 import project.controller.Controller;
 
@@ -35,8 +35,8 @@ public abstract class RatioAnalysisBase extends AnalysisBase<String, Integer, Fl
      * @return The processed data for this analysis type
      **/
     public HashMap<String, HashMap<Integer, Float>> getAnalyzedData() {
-        HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(countryToAcronym(country), numData, startYear, endYear);
-        HashMap<String, HashMap<Integer, Float>> cData2 = Controller.getFilteredData(countryToAcronym(country), denomData, startYear, endYear);
+        HashMap<String, HashMap<Integer, Float>> cData1 = Controller.getFilteredData(country, numData, startYear, endYear);
+        HashMap<String, HashMap<Integer, Float>> cData2 = Controller.getFilteredData(country, denomData, startYear, endYear);
         return getAnalyzedDataHelper(cData1, cData2);
     }
 }

@@ -1,10 +1,6 @@
-package project.analysis;
+package project.controller.analysis;
 
-import project.controller.Controller;
-import project.util.IndicatorUtils;
 import project.view.Charts.ChartCharacteristics.ChartType;
-
-import java.util.HashMap;
 
 public class AHealthExpHospBedRat extends RatioAnalysisBase {
 

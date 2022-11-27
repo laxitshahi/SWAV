@@ -1,10 +1,10 @@
 package project.model;
 
-import project.view.loginPage;
+import project.view.LoginPage;
 
 public class StartApp {
 
     public static void start() throws Exception {
-        loginPage logInPage = new loginPage();
+        LoginPage logInPage = new LoginPage();
     }
 }

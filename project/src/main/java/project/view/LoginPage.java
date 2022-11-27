@@ -3,7 +3,6 @@ package project.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,10 +10,9 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import com.sun.tools.javac.Main;
 import project.model.*;
 
-public class loginPage implements ActionListener {
+public class LoginPage implements ActionListener {
     JFrame frame = new JFrame();
     JButton loginButton = new JButton("login");
     JButton registerButton = new JButton("register");
@@ -28,10 +26,10 @@ public class loginPage implements ActionListener {
     JLabel emailLabel = new JLabel("email: ");
     JLabel pwLabel = new JLabel("password: ");
     JLabel msgLabel = new JLabel();
-    private userPassword userPassword;
+    private UserPassword userPassword;
 
-    public loginPage() throws Exception {
-        this.userPassword = new userPassword();
+    public LoginPage() throws Exception {
+        this.userPassword = new UserPassword();
 
         userLabel.setBounds(50, 100, 75, 25);
         pwLabel.setBounds(50, 150, 100, 25);
@@ -136,7 +134,7 @@ public class loginPage implements ActionListener {
         }
         if (e.getSource() == registerNowButton) {
             String name = userField.getText();
-            String password = pwField.getText();
+            String password = String.valueOf(pwField.getPassword());
             String id = idField.getText();
             String email = emailField.getText();
 

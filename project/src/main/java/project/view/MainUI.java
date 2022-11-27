@@ -3,8 +3,6 @@ package project.view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Objects;
 
 import javax.swing.*;
@@ -12,8 +10,10 @@ import javax.swing.border.Border;
 
 import org.jfree.chart.ChartPanel;
 
-import project.analysis.*;
+import project.controller.analysis.*;
+import project.util.CountryCodes;
 import project.view.Charts.ChartCharacteristics.ChartType;
+import project.view.Invalid.InvalidOption;
 
 
 public class MainUI extends JFrame implements ActionListener {
@@ -25,9 +25,8 @@ public class MainUI extends JFrame implements ActionListener {
     private final JPanel barPanel;{new JPanel();}
 
     //All Options
-    String[] countries = {"-Select Country-", "GLOBAL", "USA", "CANADA", "BRAZIL", "GERMANY", "SPAIN", "FRANCE"};
-
-    String[] analysisType = {"-Selct Analysis-", "C02 Emissions vs GDP Per Capita" ,
+    String[] countries = CountryCodes.getCountryArray();
+    String[] analysisType = {"-Select-", "C02 Emissions vs GDP Per Capita" ,
             "Forest Area vs Agricultural Land", "Average Forest Area Usage", "Problems in Accessing Health Care vs Infant Mortality",
             "Health Expenditure vs Hospital Beds (Ratio)", "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures",
             "Mortality Rate vs People Using Safely Managed Drinking Water Services",
@@ -49,8 +48,8 @@ public class MainUI extends JFrame implements ActionListener {
 
     private MainUI() {
         //Add Years to Start and End Years
-        startYear.addItem("-Select Year-");
-        endYear.addItem("-Select Year-");
+        startYear.addItem("-Select-");
+        endYear.addItem("-Select-");
         for (Integer year = 1980; year <= CURRENT_YEAR; ++year) {
             startYear.addItem(String.valueOf(year));
             endYear.addItem(String.valueOf(year));
@@ -208,14 +207,24 @@ public class MainUI extends JFrame implements ActionListener {
             String currAnalysis = Objects.requireNonNull(selectAnalysis.getSelectedItem()).toString();
             String start =  Objects.requireNonNull(startYear.getSelectedItem()).toString();
             String end =  Objects.requireNonNull(endYear.getSelectedItem()).toString();
+
             boolean isPi = piRadio.isSelected();
             boolean isBar = barRadio.isSelected();
             boolean isLine= lineRadio.isSelected();
 
-            ChartType ct = makeType(isPi, isBar, isLine);
-            getAnalysisObj(currCountry, currAnalysis, start, end, ct);
-
-
+            System.out.println(currCountry);
+            System.out.println(currAnalysis);
+            System.out.println(start);
+            System.out.println(end);
+            if ((currCountry.equals("-Select-") || currAnalysis.equals("-Select-") || start.equals("-Select-") || end.equals("-Select-")) || (!isPi && !isBar && !isLine)){
+                new InvalidOption("Input(s) Missing!");
+            }
+            else {
+                ChartType ct = makeType(isPi, isBar, isLine);
+                String currCountryCode = CountryCodes.getCode(currCountry);
+                getAnalysisObj(currCountryCode, currAnalysis, start, end, ct);
+            }
+            
             System.out.println("Submitted");
             System.out.println("Selected Country: " + currCountry);
             System.out.println("Selected Analysis: " + currAnalysis);
@@ -231,8 +240,8 @@ public class MainUI extends JFrame implements ActionListener {
         if(e.getSource() == reset){
             selectCountry.setSelectedItem(countries[0]);
             selectAnalysis.setSelectedItem(analysisType[0]);
-            startYear.setSelectedItem("-Select Year-");
-            endYear.setSelectedItem("-Select Year-");
+            startYear.setSelectedItem("-Select-");
+            endYear.setSelectedItem("-Select-");
             piRadio.setSelected(false);
             barRadio.setSelected(false);
             lineRadio.setSelected(false);

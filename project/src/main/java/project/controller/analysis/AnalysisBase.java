@@ -1,4 +1,4 @@
-package project.analysis;
+package project.controller.analysis;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,25 +29,6 @@ abstract public class AnalysisBase<K, T, V> {
     static protected ChartType chartType;
 
     public abstract HashMap<K, HashMap<T, V>> getAnalyzedData();
-
-    public String countryToAcronym(String country) {
-        switch(country) {
-            case "CANADA":
-                return "CAN";
-            case "USA":
-                return "USA";
-            case "BRAZIL":
-                return "BRA";
-            case "GERMANY":
-                return "DE";
-            case "SPAIN":
-                return "ES";
-            case "FRANCE":
-                return "FR";
-            default:
-                return country;
-        }
-    }
 
     public void startGen(ChartType chartTypeIn) {
         HashMap<K, HashMap<T, V>> data = getAnalyzedData();
