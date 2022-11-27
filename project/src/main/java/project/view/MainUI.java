@@ -224,7 +224,6 @@ public class MainUI extends JFrame implements ActionListener {
                 String currCountryCode = CountryCodes.getCode(currCountry);
                 getAnalysisObj(currCountryCode, currAnalysis, start, end, ct);
             }
-            
             System.out.println("Submitted");
             System.out.println("Selected Country: " + currCountry);
             System.out.println("Selected Analysis: " + currAnalysis);

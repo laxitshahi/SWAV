@@ -5,29 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a25a4d96-06ed-410f-809f-d75891d3eaf9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/project/src/main/java/project/util/CountryCodes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AC02GDPRat.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AC02GDPRat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AForestAgricultureAreaComp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AForestAgricultureAreaComp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AForestAreaAvg.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AForestAreaAvg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AHealthAccessMortRateComp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AHealthAccessMortRateComp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AHealthExpHospBedRat.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AHealthExpHospBedRat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AMethaneC02DisasterComp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AMethaneC02DisasterComp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AMortRateSafeWaterComp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AMortRateSafeWaterComp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/ANetUsersElecAccessRat.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/ANetUsersElecAccessRat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AnalysisBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AnalysisBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AnalysisTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AnalysisTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/AverageAnalysisBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/AverageAnalysisBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/ComparisonAnalysisBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/ComparisonAnalysisBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/analysis/RatioAnalysisBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/controller/analysis/RatioAnalysisBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/controller/MaintainUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/model/MaintainUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/model/StartApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/model/StartApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/model/userPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/model/UserPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/view/Charts/ChartTypes/Chart.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/view/Charts/ChartTypes/Chart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/src/main/java/project/view/MainUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/view/MainUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/view/WelcomePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/view/WelcomePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/java/project/view/loginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/java/project/view/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/src/main/resources/user.csv" beforeDir="false" afterPath="$PROJECT_DIR$/project/src/main/resources/user.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +81,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1669431569602</updated>
-      <workItem from="1669431571543" duration="13877000" />
+      <workItem from="1669431571543" duration="14235000" />
     </task>
     <servers />
   </component>
