@@ -58,7 +58,7 @@ public class MainUI extends JFrame implements ActionListener {
         //Frame settings
         ImageIcon image = new ImageIcon("./project/src/main/resources/swav.png");
         Border border = BorderFactory.createLineBorder(Color.black,3);
-
+        Border chartBorder = BorderFactory.createLineBorder(Color.black,1);
         /*
          * Left Panel Container
          */
@@ -69,14 +69,14 @@ public class MainUI extends JFrame implements ActionListener {
         leftPanel.setBorder(border);
         add(leftPanel);
 
-                /*
+        /*
          * Bar Panel Container
          */
         barPanel = new JPanel();
         barPanel.setBackground(Color.WHITE);
-        barPanel.setBounds(400,0, 700, (dimension.height/3) + 75);
-        barPanel.setLayout(new GridLayout(2,3));
-        barPanel.setBorder(border);
+        barPanel.setBounds(400,0, (dimension.width-400)/2, (dimension.height/2));
+        barPanel.setLayout(new GridLayout(1,0));
+        barPanel.setBorder(chartBorder);
         add(barPanel);
 
         /*
@@ -84,9 +84,9 @@ public class MainUI extends JFrame implements ActionListener {
          */
         piePanel = new JPanel();
         piePanel.setBackground(Color.WHITE);
-        piePanel.setBounds(900,0, 700, (dimension.height/3) + 75);
-        piePanel.setLayout(new GridLayout(2,3));
-        piePanel.setBorder(border);
+        piePanel.setBounds(950,0, (dimension.width-400)/2, (dimension.height/2));
+        piePanel.setLayout(new GridLayout(1,0));
+        piePanel.setBorder(chartBorder);
         add(piePanel);
 
         /*
@@ -94,9 +94,9 @@ public class MainUI extends JFrame implements ActionListener {
          */
         linePanel = new JPanel();
         linePanel.setBackground(Color.WHITE);
-        linePanel.setBounds(600, 600, 700, (dimension.height/3) + 75);
-        linePanel.setLayout(new GridLayout(2,3));
-        linePanel.setBorder(border);
+        linePanel.setBounds(600, dimension.height/2 , 700, (dimension.height/2)-70);
+        linePanel.setLayout(new GridLayout(1,0));
+        linePanel.setBorder(chartBorder);
         add(linePanel);
 
 
