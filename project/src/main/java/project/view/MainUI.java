@@ -23,7 +23,6 @@ public class MainUI extends JFrame implements ActionListener {
     private final JPanel piePanel;{new JPanel();}
     private final JPanel barPanel;{new JPanel();}
 
-<<<<<<< HEAD
     //All Options
     CountryCodes cCodes = new CountryCodes();
 
