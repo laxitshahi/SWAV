@@ -1,8 +1,6 @@
-package project.analysis;
+package project.controller.analysis;
 
 import project.view.Charts.ChartCharacteristics.ChartType;
-
-import java.util.HashMap;
 
 public class ANetUsersElecAccessRat extends RatioAnalysisBase {
     private ANetUsersElecAccessRat(){};

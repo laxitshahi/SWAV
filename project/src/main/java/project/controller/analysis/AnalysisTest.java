@@ -1,4 +1,4 @@
-package project.analysis;
+package project.controller.analysis;
 /*
 import org.junit.Test;
 import org.junit.Assert;

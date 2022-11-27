@@ -1,9 +1,8 @@
-package project.analysis;
+package project.controller.analysis;
 
 import project.view.Charts.ChartCharacteristics.ChartType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 // Simply fetch data and add to hashmap.
 public class AMethaneC02DisasterComp extends ComparisonAnalysisBase {
@@ -18,13 +17,13 @@ public class AMethaneC02DisasterComp extends ComparisonAnalysisBase {
         dataSeries.add("co2emissions");
         dataSeries.add("droughtsfloodsextremetemps");
 
-        AMethaneC02DisasterComp.dataSeries = new ArrayList<String>();
-        AMethaneC02DisasterComp.chartType = new ChartType(true, true, false);
-        AMethaneC02DisasterComp.title = "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures";
-        AMortRateSafeWaterComp.yAxisTitle = "Tons Per Cap, % of Pop";
-        AMethaneC02DisasterComp.dataSeries.add("methaneemissions");
-        AMethaneC02DisasterComp.dataSeries.add("co2emissions");
-        AMethaneC02DisasterComp.dataSeries.add("droughtsfloodsextremetemps");
+        dataSeries = new ArrayList<String>();
+        chartType = new ChartType(true, true, false);
+        title = "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures";
+        yAxisTitle = "Tons Per Cap, % of Pop";
+        dataSeries.add("methaneemissions");
+        dataSeries.add("co2emissions");
+        dataSeries.add("droughtsfloodsextremetemps");
         AMethaneC02DisasterComp.startYear = startYear;
         AMethaneC02DisasterComp.endYear = endYear;
         return analysisObj;
