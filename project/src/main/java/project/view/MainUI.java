@@ -19,17 +19,11 @@ import project.view.Charts.ChartCharacteristics.ChartType;
 public class MainUI extends JFrame implements ActionListener {
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
     private static final MainUI mainUI = new MainUI();
-    private JPanel barPanel = new JPanel();
-    private JPanel piePanel = new JPanel();
-    private JPanel linePanel = new JPanel();
 
-<<<<<<< Updated upstream
-=======
     private final JPanel linePanel;{new JPanel();}
     private final JPanel piePanel;{new JPanel();}
     private final JPanel barPanel;{new JPanel();}
 
->>>>>>> Stashed changes
     //All Options
     String[] countries = {"-Select Country-", "GLOBAL", "USA", "CANADA", "BRAZIL", "GERMANY", "SPAIN", "FRANCE"};
 
