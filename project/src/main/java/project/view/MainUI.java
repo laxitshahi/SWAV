@@ -83,7 +83,7 @@ public class MainUI extends JFrame implements ActionListener {
          */
         piePanel = new JPanel();
         piePanel.setBackground(Color.WHITE);
-        piePanel.setBounds(950,0, (dimension.width-400)/2, (dimension.height/2));
+        piePanel.setBounds((dimension.width-400)/2 + 400,0, (dimension.width-400)/2, (dimension.height/2));
         piePanel.setLayout(new GridLayout(1,0));
         piePanel.setBorder(chartBorder);
         add(piePanel);
@@ -93,7 +93,7 @@ public class MainUI extends JFrame implements ActionListener {
          */
         linePanel = new JPanel();
         linePanel.setBackground(Color.WHITE);
-        linePanel.setBounds(600, dimension.height/2 , 700, (dimension.height/2)-70);
+        linePanel.setBounds(400, dimension.height/2 , dimension.width-400, (dimension.height/2)-50);
         linePanel.setLayout(new GridLayout(1,0));
         linePanel.setBorder(chartBorder);
         add(linePanel);
