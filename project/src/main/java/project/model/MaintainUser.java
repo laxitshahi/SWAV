@@ -11,7 +11,16 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
 
 public class MaintainUser {
-    private final String filePath = new File("project/src/main/resources/user.csv").getPath();
+
+    /**
+     * @NOTE: The way that eclipse and Intellij handle path files is different, so you must use different paths for each ide
+     */
+    //Use this path for Eclipse
+//    private final String filePath = new File("src/main/resources/user.csv").getAbsolutePath();
+
+    //Use this path for Intellij
+    private final String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
+
     // load users from the csv
     public ArrayList<User> load() throws Exception {
         FileReader file = new FileReader(filePath);
