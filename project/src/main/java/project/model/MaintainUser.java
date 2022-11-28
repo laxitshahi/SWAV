@@ -1,24 +1,17 @@
 package project.model;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
 
 
 import java.io.FileReader;
-import java.util.HashMap;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
-import project.model.User;
-//import com.csvreader.CsvReader; import com.csvreader.CSVWriter;
 
 public class MaintainUser {
-    private final String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
-
+    private final String filePath = new File("project/src/main/resources/user.csv").getPath();
     // load users from the csv
     public ArrayList<User> load() throws Exception {
         FileReader file = new FileReader(filePath);
@@ -41,6 +34,7 @@ public class MaintainUser {
 
     // updates the csv with new and existing users
     public void update(ArrayList<User> users) throws Exception {
+        System.out.println(filePath);
         try {
             FileWriter output = new FileWriter(this.filePath);
             CSVWriter writer = new CSVWriter(output);
