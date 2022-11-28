@@ -10,7 +10,6 @@ import org.jfree.chart.JFreeChart;
 import project.view.Charts.ChartCharacteristics.ChartProperties;
 import project.view.Charts.ChartCharacteristics.ChartType;
 import project.view.MainUI;
-import project.view.WelcomePage;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;

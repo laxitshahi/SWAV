@@ -3,8 +3,6 @@ package project.view;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Objects;
 
 import javax.swing.*;
@@ -12,28 +10,23 @@ import javax.swing.border.Border;
 
 import org.jfree.chart.ChartPanel;
 
-import project.analysis.*;
+import project.controller.analysis.*;
+import project.util.CountryCodes;
 import project.view.Charts.ChartCharacteristics.ChartType;
+import project.view.Invalid.InvalidOption;
 
 
 public class MainUI extends JFrame implements ActionListener {
     Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
     private static final MainUI mainUI = new MainUI();
-    private JPanel barPanel = new JPanel();
-    private JPanel piePanel = new JPanel();
-    private JPanel linePanel = new JPanel();
 
-<<<<<<< Updated upstream
-=======
     private final JPanel linePanel;{new JPanel();}
     private final JPanel piePanel;{new JPanel();}
     private final JPanel barPanel;{new JPanel();}
 
->>>>>>> Stashed changes
     //All Options
-    String[] countries = {"-Select Country-", "GLOBAL", "USA", "CANADA", "BRAZIL", "GERMANY", "SPAIN", "FRANCE"};
-
-    String[] analysisType = {"-Selct Analysis-", "C02 Emissions vs GDP Per Capita" ,
+    String[] countries = CountryCodes.getCountryArray();
+    String[] analysisType = {"-Select-", "C02 Emissions vs GDP Per Capita" ,
             "Forest Area vs Agricultural Land", "Average Forest Area Usage", "Problems in Accessing Health Care vs Infant Mortality",
             "Health Expenditure vs Hospital Beds (Ratio)", "Methane and CO2 Emissions vs Droughts Floods and Extreme Temperatures",
             "Mortality Rate vs People Using Safely Managed Drinking Water Services",
@@ -55,17 +48,16 @@ public class MainUI extends JFrame implements ActionListener {
 
     private MainUI() {
         //Add Years to Start and End Years
-        startYear.addItem("-Select Year-");
-        endYear.addItem("-Select Year-");
+        startYear.addItem("-Select-");
+        endYear.addItem("-Select-");
         for (Integer year = 1980; year <= CURRENT_YEAR; ++year) {
             startYear.addItem(String.valueOf(year));
             endYear.addItem(String.valueOf(year));
         }
 
         //Frame settings
-        ImageIcon image = new ImageIcon("./project/src/main/resources/swav.png");
-        Border border = BorderFactory.createLineBorder(Color.black,3);
-
+        Border leftPanelBorder = BorderFactory.createLineBorder(Color.black,3);
+        Border chartBorder = BorderFactory.createLineBorder(Color.black,1);
         /*
          * Left Panel Container
          */
@@ -73,17 +65,17 @@ public class MainUI extends JFrame implements ActionListener {
         leftPanel.setBackground(new Color(0x1D1D77));
         leftPanel.setBounds(0,0,400,dimension.height);
         leftPanel.setLayout(new GridLayout(10,4));
-        leftPanel.setBorder(border);
+        leftPanel.setBorder(leftPanelBorder);
         add(leftPanel);
 
-                /*
+        /*
          * Bar Panel Container
          */
         barPanel = new JPanel();
         barPanel.setBackground(Color.WHITE);
-        barPanel.setBounds(400,0, 700, (dimension.height/3) + 75);
-        barPanel.setLayout(new GridLayout(2,3));
-        barPanel.setBorder(border);
+        barPanel.setBounds(400,0, (dimension.width-400)/2, (dimension.height/2));
+        barPanel.setLayout(new GridLayout(1,0));
+        barPanel.setBorder(chartBorder);
         add(barPanel);
 
         /*
@@ -91,9 +83,9 @@ public class MainUI extends JFrame implements ActionListener {
          */
         piePanel = new JPanel();
         piePanel.setBackground(Color.WHITE);
-        piePanel.setBounds(900,0, 700, (dimension.height/3) + 75);
-        piePanel.setLayout(new GridLayout(2,3));
-        piePanel.setBorder(border);
+        piePanel.setBounds((dimension.width-400)/2 + 400,0, (dimension.width-400)/2, (dimension.height/2));
+        piePanel.setLayout(new GridLayout(1,0));
+        piePanel.setBorder(chartBorder);
         add(piePanel);
 
         /*
@@ -101,9 +93,9 @@ public class MainUI extends JFrame implements ActionListener {
          */
         linePanel = new JPanel();
         linePanel.setBackground(Color.WHITE);
-        linePanel.setBounds(600, 600, 700, (dimension.height/3) + 75);
-        linePanel.setLayout(new GridLayout(2,3));
-        linePanel.setBorder(border);
+        linePanel.setBounds(400, dimension.height/2 , dimension.width-400, (dimension.height/2)-50);
+        linePanel.setLayout(new GridLayout(1,0));
+        linePanel.setBorder(chartBorder);
         add(linePanel);
 
 
@@ -172,14 +164,17 @@ public class MainUI extends JFrame implements ActionListener {
         /*
          * @Submit and Reset Buttons
          */
+        //Submit
         submit.setText("SUBMIT");
         leftPanel.add(submit);
         submit.addActionListener(this);
 
+        //Reset
         reset.setText("RESET");
         leftPanel.add(reset);
         reset.addActionListener(this);
 
+        //Settings for JFrame
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null); //absolute positioning
         setSize(dimension);
@@ -214,14 +209,23 @@ public class MainUI extends JFrame implements ActionListener {
             String currAnalysis = Objects.requireNonNull(selectAnalysis.getSelectedItem()).toString();
             String start =  Objects.requireNonNull(startYear.getSelectedItem()).toString();
             String end =  Objects.requireNonNull(endYear.getSelectedItem()).toString();
+
             boolean isPi = piRadio.isSelected();
             boolean isBar = barRadio.isSelected();
             boolean isLine= lineRadio.isSelected();
 
-            ChartType ct = makeType(isPi, isBar, isLine);
-            getAnalysisObj(currCountry, currAnalysis, start, end, ct);
-
-
+            System.out.println(currCountry);
+            System.out.println(currAnalysis);
+            System.out.println(start);
+            System.out.println(end);
+            if ((currCountry.equals("-Select-") || currAnalysis.equals("-Select-") || start.equals("-Select-") || end.equals("-Select-")) || (!isPi && !isBar && !isLine)){
+                new InvalidOption("Input(s) Missing!");
+            }
+            else {
+                ChartType ct = makeType(isPi, isBar, isLine);
+                String currCountryCode = CountryCodes.getCode(currCountry);
+                getAnalysisObj(currCountryCode, currAnalysis, start, end, ct);
+            }
             System.out.println("Submitted");
             System.out.println("Selected Country: " + currCountry);
             System.out.println("Selected Analysis: " + currAnalysis);
@@ -237,8 +241,8 @@ public class MainUI extends JFrame implements ActionListener {
         if(e.getSource() == reset){
             selectCountry.setSelectedItem(countries[0]);
             selectAnalysis.setSelectedItem(analysisType[0]);
-            startYear.setSelectedItem("-Select Year-");
-            endYear.setSelectedItem("-Select Year-");
+            startYear.setSelectedItem("-Select-");
+            endYear.setSelectedItem("-Select-");
             piRadio.setSelected(false);
             barRadio.setSelected(false);
             lineRadio.setSelected(false);

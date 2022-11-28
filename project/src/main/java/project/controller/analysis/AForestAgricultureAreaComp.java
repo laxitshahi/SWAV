@@ -1,9 +1,8 @@
-package project.analysis;
+package project.controller.analysis;
 
 import project.view.Charts.ChartCharacteristics.ChartType;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 // Simply fetch data and add to hashmap.
 public class AForestAgricultureAreaComp extends ComparisonAnalysisBase {
@@ -12,13 +11,11 @@ public class AForestAgricultureAreaComp extends ComparisonAnalysisBase {
 
     static public AForestAgricultureAreaComp getAnalysisObj(String country, String startYear, String endYear) {
         AForestAgricultureAreaComp.country = country;
-<<<<<<< Updated upstream:project/src/main/java/project/analysis/AForestAgricultureAreaComp.java
-=======
         dataSeries = new ArrayList<String>();
         title = "Forest Area vs Agricultural Land";
         dataSeries.add("forestarea");
         dataSeries.add("agriculturalland");
->>>>>>> Stashed changes:project/src/main/java/project/controller/analysis/AForestAgricultureAreaComp.java
+
         AForestAgricultureAreaComp.dataSeries = new ArrayList<String>();
         AForestAgricultureAreaComp.chartType = new ChartType(true, true, false);
         AForestAgricultureAreaComp.title = "Forest Area vs Agricultural Land";
