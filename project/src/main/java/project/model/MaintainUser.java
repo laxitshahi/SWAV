@@ -17,7 +17,7 @@ import project.model.User;
 //import com.csvreader.CsvReader; import com.csvreader.CSVWriter;
 
 public class MaintainUser {
-    private String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
+    private final String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
 
     // load users from the csv
     public ArrayList<User> load() throws Exception {
