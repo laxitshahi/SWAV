@@ -1,12 +1,12 @@
 package project;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import project.controller.analysis.AForestAreaAvg;
 import project.controller.analysis.AHealthExpHospBedRat;
 import project.controller.analysis.AMortRateSafeWaterComp;
 
-import org.junit.Assert;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,11 +31,12 @@ public class AnalysisTest {
         denominatorData.put(2003, 1.f);
         country2Data.put("hospitalbeds", denominatorData);
 
+ 
         HashMap<String, HashMap<Integer, Float>> data = AHealthExpHospBedRat.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data, country2Data);
-        Assert.assertEquals( 1.f, data.get("Ratio").get(2000), 0.01f);
-        Assert.assertEquals( 2.f, data.get("Ratio").get(2001), 0.01f);
-        Assert.assertEquals( 5.f, data.get("Ratio").get(2002), 0.01f);
-        Assert.assertEquals( 10.f, data.get("Ratio").get(2003), 0.01f);
+        assertEquals( 1.f, data.get("Ratio").get(2000), 0.01f);
+        assertEquals( 2.f, data.get("Ratio").get(2001), 0.01f);
+        assertEquals( 5.f, data.get("Ratio").get(2002), 0.01f);
+        assertEquals( 10.f, data.get("Ratio").get(2003), 0.01f);
 
     }
     
@@ -77,14 +78,14 @@ public class AnalysisTest {
         allCountryData.add(country2Data);
 
         HashMap<String, HashMap<Integer, Float>> data = AMortRateSafeWaterComp.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(allCountryData);
-        Assert.assertEquals( 10.f, data.get("mortalityunder5").get(2000), 0.01f);
-        Assert.assertEquals( 20.f, data.get("mortalityunder5").get(2001), 0.01f);
-        Assert.assertEquals( 30.f, data.get("mortalityunder5").get(2002), 0.01f);
-        Assert.assertEquals( 40.f, data.get("mortalityunder5").get(2003), 0.01f);
-        Assert.assertEquals( 10.f, data.get("usingwatermanaged").get(2000), 0.01f);
-        Assert.assertEquals( 5.f, data.get("usingwatermanaged").get(2001), 0.01f);
-        Assert.assertEquals( 2.f, data.get("usingwatermanaged").get(2002), 0.01f);
-        Assert.assertEquals( 1.f, data.get("usingwatermanaged").get(2003), 0.01f);
+        assertEquals( 10.f, data.get("mortalityunder5").get(2000), 0.01f);
+        assertEquals( 20.f, data.get("mortalityunder5").get(2001), 0.01f);
+        assertEquals( 30.f, data.get("mortalityunder5").get(2002), 0.01f);
+        assertEquals( 40.f, data.get("mortalityunder5").get(2003), 0.01f);
+        assertEquals( 10.f, data.get("usingwatermanaged").get(2000), 0.01f);
+        assertEquals( 5.f, data.get("usingwatermanaged").get(2001), 0.01f);
+        assertEquals( 2.f, data.get("usingwatermanaged").get(2002), 0.01f);
+        assertEquals( 1.f, data.get("usingwatermanaged").get(2003), 0.01f);
 
     }
     
@@ -119,13 +120,13 @@ public class AnalysisTest {
         country1Data.put("forestarea", data1);
 
         data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
-        Assert.assertEquals( 10.f, data.get("DNC").get("forestarea"), 0.01f);
+        assertEquals( 10.f, data.get("DNC").get("forestarea"), 0.01f);
 
         data1.put(2001, 2.f);
         country1Data.put("forestarea", data1);
 
         data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
-        Assert.assertEquals( 6.f, data.get("DNC").get("forestarea"), 0.01f);
+        assertEquals( 6.f, data.get("DNC").get("forestarea"), 0.01f);
 
     }
     
