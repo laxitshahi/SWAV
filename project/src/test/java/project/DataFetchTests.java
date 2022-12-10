@@ -108,7 +108,6 @@ class DataFetchTests {
          * @Test 5
          * @Description: Ensure Invalid parameters cannot be passed in
          */
-        
         //Invalid Year 
         JsonArray invalidInput = WorldBank.getData(aCountry, dataTypes[0], "-1900", "1000000");
         String yearTypeKey = invalidInput.get(0).getAsJsonObject().get("message").getAsJsonArray().get(0).getAsJsonObject().get("key").getAsString();
