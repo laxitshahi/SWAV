@@ -16,10 +16,10 @@ public class MaintainUser {
      * @NOTE: The way that eclipse and Intellij handle path files is different, so you must use different paths for each ide
      */
     //Use this path for Eclipse
-//    private final String filePath = new File("src/main/resources/user.csv").getAbsolutePath();
+    private final String filePath = new File("src/main/resources/user.csv").getAbsolutePath();
 
     //Use this path for Intellij
-    private final String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
+//    private final String filePath = new File("project/src/main/resources/user.csv").getAbsolutePath();
 
     // load users from the csv
     public ArrayList<User> load() throws Exception {
