@@ -26,7 +26,7 @@ public class WorldBank {
         String urlString = String.format(
                 "http://api.worldbank.org/v2/country/%s/indicator/%s?date=%s:%s&format=json", aCountry, indicator, startYear, endYear);
 
-        System.out.println(urlString);
+//        System.out.println(urlString);
         JsonArray jsonData = null;
 
         try {
