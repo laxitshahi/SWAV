@@ -123,8 +123,8 @@ class DataFetchTests {
        
         //Invalid country
         JsonArray invalidCountry = WorldBank.getData(aCountry, "invalid.country", startYear, endYear);
-        String countryTypeKey = invalidInput.get(0).getAsJsonObject().get("message").getAsJsonArray().get(0).getAsJsonObject().get("key").getAsString();
-        assertEquals("Invalid value".toLowerCase(), countryTypeKey.toLowerCase());
+        String countryKey = invalidInput.get(0).getAsJsonObject().get("message").getAsJsonArray().get(0).getAsJsonObject().get("key").getAsString();
+        assertEquals("Invalid value".toLowerCase(), countryKey.toLowerCase());
         System.out.println("Test 5.3: ✅ Response key returns 'Invalid value' error ");
     }
 
