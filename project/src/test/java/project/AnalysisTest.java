@@ -1,6 +1,11 @@
-package project.controller.analysis;
-/*
+package project;
+
 import org.junit.Test;
+
+import project.controller.analysis.AForestAreaAvg;
+import project.controller.analysis.AHealthExpHospBedRat;
+import project.controller.analysis.AMortRateSafeWaterComp;
+
 import org.junit.Assert;
 
 import java.util.ArrayList;
@@ -31,6 +36,21 @@ public class AnalysisTest {
         Assert.assertEquals( 2.f, data.get("Ratio").get(2001), 0.01f);
         Assert.assertEquals( 5.f, data.get("Ratio").get(2002), 0.01f);
         Assert.assertEquals( 10.f, data.get("Ratio").get(2003), 0.01f);
+
+    }
+    
+    @Test
+    public void test_ratio_analysis_empty() {
+        HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
+        HashMap<Integer, Float> numeratorData = new HashMap<Integer, Float>();
+        country1Data.put("healthexpenditure", numeratorData);
+
+        HashMap<String, HashMap<Integer, Float>> country2Data = new HashMap<String, HashMap<Integer, Float>>();
+        HashMap<Integer, Float> denominatorData = new HashMap<Integer, Float>();
+        country2Data.put("hospitalbeds", denominatorData);
+
+        // Ensure there are no divide by 0 exceptions
+        HashMap<String, HashMap<Integer, Float>> data = AHealthExpHospBedRat.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data, country2Data);      
 
     }
 
@@ -67,14 +87,31 @@ public class AnalysisTest {
         Assert.assertEquals( 1.f, data.get("usingwatermanaged").get(2003), 0.01f);
 
     }
+    
+    @Test
+    public void test_comparison_analysis_empty() {
+        ArrayList<HashMap<String, HashMap<Integer, Float>>> allCountryData = new ArrayList<HashMap<String, HashMap<Integer, Float>>>();
+        HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
+        HashMap<Integer, Float> data1 = new HashMap<Integer, Float>();
+        country1Data.put("mortalityunder5", data1);
+
+        HashMap<String, HashMap<Integer, Float>> country2Data = new HashMap<String, HashMap<Integer, Float>>();
+        HashMap<Integer, Float> data2 = new HashMap<Integer, Float>();
+        country2Data.put("usingwatermanaged", data2);
+
+        allCountryData.add(country1Data);
+        allCountryData.add(country2Data);
+
+        // Ensure there are 
+        HashMap<String, HashMap<Integer, Float>> data = AMortRateSafeWaterComp.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(allCountryData);
+
+    }
 
     @Test
     public void test_average_analysis() {
         HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
 
-        // Input is empty
         HashMap<String, HashMap<String,Float>> data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
-        assert (data.get("DNC").keySet().size() == 0);
 
         // Tests
         HashMap<Integer, Float> data1 = new HashMap<Integer, Float>();
@@ -91,5 +128,16 @@ public class AnalysisTest {
         Assert.assertEquals( 6.f, data.get("DNC").get("forestarea"), 0.01f);
 
     }
+    
+    @Test
+    public void test_average_analysis_empty() {
+        HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
+
+        // Input is empty
+        HashMap<String, HashMap<String,Float>> data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
+        assert (data.get("DNC").keySet().size() == 0);
+
+
+
+    }
 }
-*/
