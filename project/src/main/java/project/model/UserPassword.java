@@ -3,7 +3,7 @@ package project.model;
 import java.util.ArrayList;
 
 public class UserPassword {
-    private MaintainUser maintainUser = new MaintainUser();
+    public MaintainUser maintainUser = new MaintainUser();
     private ArrayList<User> users;
 
     public UserPassword() throws Exception {

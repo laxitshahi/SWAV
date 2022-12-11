@@ -25,8 +25,13 @@ class LoginTest {
     @Test 
     void loginTest2() throws Exception {
         User user1 = new User("testing", 911, "kai@gmail.com", "wrong");
+        User user2 = new User("testing", 911, "kai@gmail.com", "testing");
         
         UserPassword userPW = new UserPassword();
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user2);
+        
+        userPW.maintainUser.update(users);
         assertTrue(userPW.checkUser(user1) == 1);
     }
     
@@ -35,6 +40,10 @@ class LoginTest {
         User user1 = new User("testing", 911, "kai@gmail.com", "testing");
         
         UserPassword userPW = new UserPassword();
+        ArrayList<User> users = new ArrayList<>();
+        users.add(user1);
+        
+        userPW.maintainUser.update(users);
         assertTrue(userPW.checkUser(user1) == 2);
     }
     

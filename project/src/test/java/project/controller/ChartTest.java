@@ -27,7 +27,7 @@ public class ChartTest {
         chartMed.genCharts();
     }
 
-    @Test
+ 
     public static <K, T, V> HashMap<K, HashMap<T, V>> genDataExample() {
         HashMap<K, HashMap<T, V>> data = new HashMap<>();
 
