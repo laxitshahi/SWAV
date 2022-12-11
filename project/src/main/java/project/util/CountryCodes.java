@@ -5,7 +5,7 @@ import java.util.TreeMap;
 public class CountryCodes {
 
     public static final Map<String, String> countryMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-    public CountryCodes() {
+    private static void loadCountries() {
         countryMap.put("Andorra, Principality Of", "AD");
         countryMap.put("United Arab Emirates", "AE");
         countryMap.put("Afghanistan, Islamic State Of", "AF");
@@ -253,8 +253,9 @@ public class CountryCodes {
 
     }
     public static String getCode(String country){
+        loadCountries();
         String countryFound = countryMap.get(country);
-        if(countryFound==null){
+        if(countryFound == null){
             countryFound="CA";
         }
         return countryFound;

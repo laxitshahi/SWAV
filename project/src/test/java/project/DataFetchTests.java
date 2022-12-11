@@ -125,6 +125,7 @@ class DataFetchTests {
         String countryKey = invalidInput.get(0).getAsJsonObject().get("message").getAsJsonArray().get(0).getAsJsonObject().get("key").getAsString();
         assertEquals("Invalid value".toLowerCase(), countryKey.toLowerCase());
         System.out.println("Test 5.3: ✅ Response key returns 'Invalid value' error ");
+        
     }
 
 
