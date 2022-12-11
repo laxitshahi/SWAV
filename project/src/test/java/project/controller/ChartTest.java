@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.jfree.chart.plot.PlotOrientation;
+import org.junit.Test;
 
 import project.view.Charts.ChartMed;
 import project.view.Charts.ChartCharacteristics.ChartProperties;
@@ -26,7 +27,7 @@ public class ChartTest {
         chartMed.genCharts();
     }
 
-    
+    @Test
     public static <K, T, V> HashMap<K, HashMap<T, V>> genDataExample() {
         HashMap<K, HashMap<T, V>> data = new HashMap<>();
 
