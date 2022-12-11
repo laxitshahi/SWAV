@@ -32,6 +32,7 @@ class LoginTest {
         users.add(user2);
         
         userPW.maintainUser.update(users);
+        userPW = new UserPassword();
         assertTrue(userPW.checkUser(user1) == 1);
     }
     
@@ -44,6 +45,7 @@ class LoginTest {
         users.add(user1);
         
         userPW.maintainUser.update(users);
+        userPW = new UserPassword();
         assertTrue(userPW.checkUser(user1) == 2);
     }
     
