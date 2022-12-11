@@ -3,10 +3,14 @@ package project;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+import project.controller.analysis.AC02GDPRat;
+import project.controller.analysis.AForestAgricultureAreaComp;
 import project.controller.analysis.AForestAreaAvg;
+import project.controller.analysis.AHealthAccessMortRateComp;
 import project.controller.analysis.AHealthExpHospBedRat;
+import project.controller.analysis.AMethaneC02DisasterComp;
 import project.controller.analysis.AMortRateSafeWaterComp;
-
+import project.controller.analysis.ANetUsersElecAccessRat;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +41,19 @@ public class AnalysisTest {
         assertEquals( 2.f, data.get("Ratio").get(2001), 0.01f);
         assertEquals( 5.f, data.get("Ratio").get(2002), 0.01f);
         assertEquals( 10.f, data.get("Ratio").get(2003), 0.01f);
+
+    }
+    
+    @Test
+    public void test_ratio() {
+        // Manually test against pre-computed data
+        HashMap<String, HashMap<Integer, Float>> data = AC02GDPRat.getAnalysisObj("US", "2012", "2018").getAnalyzedData();
+        assertEquals( 2.6180642E-4, data.get("Ratio").get(2016), 0.01f);
+        assertEquals( 2.4740575E-4, data.get("Ratio").get(2017), 0.01f);
+        
+        data = ANetUsersElecAccessRat.getAnalysisObj("US", "2012", "2018").getAnalyzedData();
+        assertEquals( 0.8554442, data.get("Ratio").get(2016), 0.01f);
+        assertEquals( 0.87274885, data.get("Ratio").get(2017), 0.01f);
 
     }
     
@@ -90,6 +107,23 @@ public class AnalysisTest {
     }
     
     @Test
+    public void test_comparison() {
+        // Manually test against pre-computed data
+        HashMap<String, HashMap<Integer, Float>> data = AForestAgricultureAreaComp.getAnalysisObj("US", "2012", "2018").getAnalyzedData();
+        assertEquals( 33.899723, data.get("forestarea").get(2016), 0.01f);
+        assertEquals( 44.303707, data.get("agriculturalland").get(2016), 0.01f);
+        
+        data = AHealthAccessMortRateComp.getAnalysisObj("US", "2012", "2018").getAnalyzedData();
+        assertEquals( 0.0, data.get("problemsaccessinghealthcare").get(2016), 0.01f);
+        assertEquals( 5.7, data.get("mortalityinfant").get(2016), 0.01f);
+        
+        data = AMethaneC02DisasterComp.getAnalysisObj("US", "2012", "2018").getAnalyzedData();
+        assertEquals( 15.149885, data.get("co2emissions").get(2016), 0.01f);
+        assertEquals( 0.0, data.get("droughtsfloodsextremetemps").get(2016), 0.01f);
+ 
+    }
+    
+    @Test
     public void test_comparison_analysis_empty() {
         ArrayList<HashMap<String, HashMap<Integer, Float>>> allCountryData = new ArrayList<HashMap<String, HashMap<Integer, Float>>>();
         HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
@@ -131,14 +165,19 @@ public class AnalysisTest {
     }
     
     @Test
+    public void test_average() {
+        HashMap<String, HashMap<String, Float>> data = AForestAreaAvg.getAnalysisObj("US", "2012", "2018").getAnalyzedData();
+        assertEquals( 33.864586, data.get("US").get("forestarea"), 0.01f);
+
+    }
+    
+    @Test
     public void test_average_analysis_empty() {
         HashMap<String, HashMap<Integer, Float>> country1Data = new HashMap<String, HashMap<Integer, Float>>();
 
         // Input is empty
         HashMap<String, HashMap<String,Float>> data = AForestAreaAvg.getAnalysisObj("DNC", "DNC", "DNC").getAnalyzedDataHelper(country1Data);
         assert (data.get("DNC").keySet().size() == 0);
-
-
 
     }
 }
