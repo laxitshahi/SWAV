@@ -1,4 +1,4 @@
-package project.controller;
+package project.ui;
 
 import java.util.ArrayList;
 import java.util.HashMap;
