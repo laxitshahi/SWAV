@@ -4,9 +4,9 @@
 
 ### 1.1 Purpose
 
-**SWAV, is a software analysis tool which allows users to do the following:**
+**SWAV is a software analysis tool that allows users to do the following:**
 
-- Register new user and login
+- Register a new user and login
 - View data visualizations where users can manipulate the following parameters:
   1. Country
   2. Analysis Type
@@ -20,6 +20,7 @@
 - [Swing](https://docs.oracle.com/javase/7/docs/api/javax/swing/package-summary.html)
 - [JFreeChart](https://www.jfree.org/jfreechart/)
 - [World Bank API](https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation)
+- [Randoop](https://randoop.github.io/randoop/)
 
 ## 2. Major Design Decisions
 

@@ -1,6 +1,7 @@
 package project.view;
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,32 +15,32 @@ import project.model.*;
 
 public class LoginPage implements ActionListener {
     JFrame frame = new JFrame();
-    JButton loginButton = new JButton("login");
-    JButton registerButton = new JButton("register");
-    JButton registerNowButton = new JButton("register now");
+    JButton loginButton = new JButton("Sign In");
+    JButton registerButton = new JButton("Register");
+    JButton registerNowButton = new JButton("Register");
     JTextField userField = new JTextField();
     JTextField idField = new JTextField();
     JTextField emailField = new JTextField();
     JPasswordField pwField = new JPasswordField();
-    JLabel userLabel = new JLabel("user: ");
-    JLabel idLabel = new JLabel("id: ");
-    JLabel emailLabel = new JLabel("email: ");
-    JLabel pwLabel = new JLabel("password: ");
+    JLabel userLabel = new JLabel("User: ");
+    JLabel idLabel = new JLabel("ID: ");
+    JLabel emailLabel = new JLabel("Email: ");
+    JLabel pwLabel = new JLabel("Password: ");
     JLabel msgLabel = new JLabel();
     private UserPassword userPassword;
 
     public LoginPage() throws Exception {
         this.userPassword = new UserPassword();
 
-        userLabel.setBounds(50, 100, 75, 25);
-        pwLabel.setBounds(50, 150, 100, 25);
-        idLabel.setBounds(50, 200, 75, 25);
-        emailLabel.setBounds(50, 250, 75, 25);
+        userLabel.setBounds(75, 100, 75, 25);
+        pwLabel.setBounds(75, 150, 100, 25);
+        idLabel.setBounds(75, 200, 75, 25);
+        emailLabel.setBounds(75, 250, 75, 25);
 
-        userField.setBounds(125, 100, 200, 25);
-        pwField.setBounds(125, 150, 200, 25);
-        idField.setBounds(125, 200, 200, 25);
-        emailField.setBounds(125, 250, 200, 25);
+        userField.setBounds(150, 100, 200, 25);
+        pwField.setBounds(150, 150, 200, 25);
+        idField.setBounds(150, 200, 200, 25);
+        emailField.setBounds(150, 250, 200, 25);
 
         loginButton.setBounds(125, 300, 100, 25);
         loginButton.addActionListener(this);
@@ -104,13 +105,9 @@ public class LoginPage implements ActionListener {
             registerNowButton.setFocusable(false);
         }
         if (e.getSource() == loginButton) {
-            // Change this once testing is done else login will work w/o auth
-//            userField.setText("testing"); pwField.setText("testing");
-
             String name = userField.getText();
             String password = String.valueOf(pwField.getPassword());
 
-            //Add id/email login in later if time
             String id = idField.getText();
             String email = emailField.getText();
             msgLabel.setText("");
@@ -124,12 +121,11 @@ public class LoginPage implements ActionListener {
             if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 2) {
                 msgLabel.setText("Login successful!");
                 frame.dispose();
-//                WelcomePage wPage = WelcomePage.getInstance();
-                MainUI mainUI = MainUI.getInstance();
+                MainUI mainUI = MainUI.getInstance(); //Start MainUI
             } else if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 1) {
                 msgLabel.setText("Please check your username and password.");
             } else if (this.userPassword.checkUser(new User(name, 0, "email", password)) == 0) {
-                msgLabel.setText("You must register");
+                msgLabel.setText("You must register.");
             }
         }
         if (e.getSource() == registerNowButton) {
@@ -138,7 +134,6 @@ public class LoginPage implements ActionListener {
             String id = idField.getText();
             String email = emailField.getText();
 
-            //TODO add id and email compatibility
             this.userPassword.registerUser(name, id, email, password); // TODO is this adding the user and pw to the loginInfo in this class or in userPassword class? probably this class
 
             userField.setText("");
