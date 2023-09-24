@@ -12,6 +12,7 @@
   2. Analysis Type
   3. Start/End Year
   4. View (type of graph)
+![app-swav-2](https://github.com/laxitshahi/SWAV/assets/46412618/e83c3362-a591-478e-aa69-54e4c8ef44c1)
 
 ![app-swav-3](https://github.com/laxitshahi/SWAV/assets/46412618/1bcc3aff-9aea-4258-9f1b-26e313d864c5)
 
