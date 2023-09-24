@@ -13,6 +13,8 @@
   3. Start/End Year
   4. View (type of graph)
 
+![app-swav-3](https://github.com/laxitshahi/SWAV/assets/46412618/1bcc3aff-9aea-4258-9f1b-26e313d864c5)
+
 ### 1.3 Tools Used
 
 - [Maven](https://maven.apache.org/)
